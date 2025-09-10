@@ -9,20 +9,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-  --bg:#0f2034;         /* deep navy */
-  --panel:#11233a;      /* navy panel */
-  --text:#eaf4fb;       /* near-white text */
-  --muted:#b6c9d8;      /* muted slate-blue */
-  --border:#1f3a57;     /* steel blue border */
-  --accent:#7BAFD4;     /* Carolina Blue */
+  --carolina:#7BAFD4;      /* Carolina Blue */
+  --bg:#f7fbff;            /* very light blue */
+  --panel:#ffffff;
+  --text:#0b1f33;
+  --muted:#5b6b7a;
+  --border:#d8e7f3;
   --max:820px;
 }
+
+*{box-sizing:border-box} html,body{margin:0}
 body{
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   color:var(--text);
-  background:linear-gradient(180deg,#0b1b2d,#0f2034);
+  background: linear-gradient(180deg,#ecf5fd,#f7fbff); /* light sky background */
   line-height:1.6;
 }
+<div class="header-bar"></div>
+/* Carolina Blue header strip */
+.header-bar{
+  height:8px; width:100%;
+  background:var(--carolina);
+}
+
+/* Card + layout */
+.wrap{max-width:var(--max); margin:0 auto; padding:40px 20px}
+.card{
+  background:var(--panel); border:2px solid var(--border);
+  border-radius:20px; padding:28px; box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.about{display:grid; gap:22px; align-items:center; grid-template-columns: 220px 1fr}
+
+/* Photo with Carolina Blue ring */
+.photo{
+  max-width:220px; height:auto; border-radius:20px; object-fit:cover;
+  border:4px solid var(--carolina);
+  background:#eef6fd;
+}
+
+/* Typography with Carolina accents */
+h1{margin:0 0 8px; font-size:36px; line-height:1.15}
+h2{margin:18px 0 8px; font-size:18px; color:var(--carolina); letter-spacing:.02em}
+a{color:var(--carolina); text-decoration:none; font-weight:600}
+a:hover{filter:brightness(.9); text-decoration:underline}
+
+footer{color:var(--muted); text-align:center; padding:20px 0 10px}
+
+/* Mobile */
+@media (max-width:700px){
+  .about{grid-template-columns: 1fr}
+  .photo{max-width:180px; border-radius:18px; margin:0 auto}
+  h1{font-size:30px; text-align:center}
+  .intro{text-align:center}
+}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:48px 20px}
     .card{
       background:var(--panel); border:1px solid var(--border);

@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — About</title>
-  <meta name="description" content="About — Your Name. Research interests, contact, and CV." />
+  <title>Wenfei Yu — About</title>
+  <meta name="description" content="About — Wenfei Yu. Research interests, contact, and CV." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Inter for UI, Source Serif Pro for body copy (scholarly feel) -->
+  <!-- Inter for UI, Source Serif Pro for body copy -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
   <style>
     /* ===== Theme ===== */
     :root{
-      --accent:#99BADD;        /* Carolina Blue (requested) */
-      --accent-strong:#7da0c8; /* deeper shade for hover/focus */
-      --ink:#1a2433;           /* primary text (very dark navy) */
+      --accent:#99BADD;        /* Carolina Blue */
+      --accent-strong:#7da0c8; /* darker shade */
+      --ink:#1a2433;           /* primary text */
       --sub:#48576b;           /* secondary text */
       --paper:#ffffff;         /* card */
       --bg:#f6f9fc;            /* page background */
@@ -37,7 +37,7 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Top accent bar for a professional splash of color */
+    /* Top accent bar */
     .bar{height:8px; width:100%; background:var(--accent);}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px}
@@ -59,7 +59,7 @@
     .photo{
       display:block;
       width:100%;
-      max-width:240px;     /* natural proportions, not forced square */
+      max-width:240px;
       height:auto;
       border-radius:16px;
       border:4px solid var(--accent);
@@ -115,7 +115,6 @@
       font-size:14px;
     }
 
-    /* Subtle section divider using the accent hue */
     .rule{
       height:2px; width:100%;
       background:linear-gradient(90deg, transparent, var(--accent), transparent);
@@ -132,7 +131,7 @@
       .links{ text-align:center }
     }
 
-    /* ===== Print (CV reviewers often print) ===== */
+    /* ===== Print ===== */
     @media print{
       .bar{display:none}
       body{background:#fff}
@@ -145,35 +144,32 @@
 
   <main class="wrap">
     <section class="card about" aria-labelledby="about-title">
-      <img class="photo" src="/assets/img/headshot.jpg" alt="Headshot of Your Name">
+      <img class="photo" src="/assets/img/GitHitPhoto.jpg" alt="Headshot of Wenfei Yu">
       <div>
-        <h1 id="about-title">Your Name</h1>
-        <p class="subtitle">Prospective graduate student • [Field / Program]</p>
+        <h1 id="about-title">Wenfei Yu</h1>
+        <p class="subtitle">Clinical Research Coordinator • OSU Wexner Medical Center Department of Psychiatry</p>
         <p class="lead">
-          2–4 sentences introducing your research focus and objectives (e.g., “I study mindfulness-based interventions,
-          heart rate variability, and longitudinal modeling. I’m interested in translational clinical science and methods
-          that strengthen causal inference in real-world trials.”)
+          I am currently working as a clinical research assistant with experience in mindfulness-based interventions, 
+          heart rate variability analysis, and advanced statistical modeling. I am preparing applications for graduate study 
+          and aspire to contribute to rigorous, translational research in clinical psychology and neuroscience.
         </p>
 
         <div class="rule" role="presentation"></div>
 
         <h2>Contact</h2>
         <p>Email: <a class="link" href="mailto:you@university.edu">you@university.edu</a></p>
-        <!-- Add items later as you wish:
-        <p>Dept/Lab, University</p>
-        -->
 
         <div class="links">
-          <!-- Optional buttons (uncomment when ready) -->
+          <!-- Add these later when ready -->
           <!-- <a class="btn" href="/assets/CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
           <a class="btn" href="https://www.linkedin.com/in/your-handle/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener">GitHub</a> -->
+          <a class="btn" href="https://github.com/wenfei030" target="_blank" rel="noopener">GitHub</a> -->
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="y"></span> Your Name · Last updated <span id="d"></span>
+      © <span id="y"></span> Wenfei Yu · Last updated <span id="d"></span>
     </footer>
   </main>
 

@@ -3,144 +3,72 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name – Portfolio</title>
+  <title>Your Name — About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f172a;        /* slate-900 */
-      --panel:#111827;     /* gray-900 */
-      --text:#e5e7eb;      /* gray-200 */
-      --muted:#9ca3af;     /* gray-400 */
-      --accent:#60a5fa;    /* blue-400 */
-      --chip:#1f2937;      /* gray-800 */
-      --border:#1f2937;
-      --max: 980px;
+      --bg:#0f172a; --panel:#111827; --text:#e5e7eb; --muted:#9ca3af;
+      --border:#1f2937; --accent:#60a5fa; --max: 820px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0}
+    *{box-sizing:border-box} html,body{margin:0}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text); background:linear-gradient(180deg,#0b1224, var(--bg));
+      color:var(--text); background:linear-gradient(180deg,#0b1224,var(--bg));
       line-height:1.6;
     }
-    header{
-      position:sticky; top:0; backdrop-filter: blur(6px);
-      background:rgba(15,23,42,0.7); border-bottom:1px solid var(--border);
-      z-index:10;
-    }
-    nav{max-width:var(--max); margin:0 auto; display:flex; gap:24px; align-items:center; padding:12px 20px}
-    nav a{color:var(--muted); text-decoration:none; font-weight:600}
-    nav a:hover{color:var(--text)}
-    .container{max-width:var(--max); margin:0 auto; padding:28px 20px}
-    .hero{
-      display:grid; grid-template-columns: 120px 1fr; gap:20px; align-items:center;
-      padding:36px 0 10px;
-    }
-    .hero img{
-      width:120px; height:120px; border-radius:18px; object-fit:cover; border:1px solid var(--border)
-    }
-    h1{font-size:38px; line-height:1.1; margin:0}
-    h2{margin:28px 0 8px; font-size:22px}
-    p{margin:0 0 10px}
-    .links a{margin-right:14px; text-decoration:none; color:var(--accent); font-weight:600}
+    .wrap{max-width:var(--max); margin:0 auto; padding:48px 20px}
     .card{
       background:var(--panel); border:1px solid var(--border);
-      border-radius:16px; padding:18px; margin:14px 0;
+      border-radius:18px; padding:28px; box-shadow:0 10px 30px rgba(0,0,0,.25);
     }
-    .grid{display:grid; gap:14px}
-    @media(min-width:880px){ .grid{grid-template-columns: repeat(2,1fr)} }
-    .chip{display:inline-block; padding:6px 10px; background:var(--chip); border:1px solid var(--border); border-radius:999px; font-size:13px; color:var(--muted); margin:6px 6px 0 0}
-    footer{color:var(--muted); text-align:center; padding:24px 0 40px}
+    .about{
+      display:grid; gap:22px; align-items:center;
+      grid-template-columns: 220px 1fr; /* bigger photo */
+    }
+    .photo{
+      width:220px; height:220px; border-radius:20px; object-fit:cover;
+      border:1px solid var(--border);
+      background:#0b1224;
+    }
+    h1{margin:0 0 8px; font-size:36px; line-height:1.15}
+    h2{margin:20px 0 10px; font-size:18px; color:var(--muted); font-weight:700; letter-spacing:.02em}
+    p{margin:0 0 12px}
+    a{color:var(--accent); text-decoration:none; font-weight:600}
+    a:hover{text-decoration:underline}
+    footer{color:var(--muted); text-align:center; padding:20px 0 10px}
+    @media (max-width:700px){
+      .about{grid-template-columns: 1fr}
+      .photo{width:160px; height:160px; border-radius:18px; margin:0 auto}
+      h1{font-size:30px; text-align:center}
+      .intro{text-align:center}
+    }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research Interests</a>
-      <a href="#projects">Projects</a>
-      <a href="#pubs">Publications</a>
-      <a href="/assets/CV.pdf" target="_blank">CV</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero" id="about">
-      <img src="/assets/img/headshot.jpg" alt="Headshot">
+  <main class="wrap">
+    <section class="card about" aria-labelledby="about-title">
+      <img class="photo" src="/assets/img/headshot.jpg" alt="Headshot of Your Name">
       <div>
-        <h1>Your Name</h1>
-        <p><strong>Prospective graduate student in [Your Field]</strong></p>
-        <p>1–2 sentences that summarize you (e.g., “Research assistant at OSU focusing on mindfulness-based interventions, HRV modeling, and SEM. Interested in translational clinical science and methodologically rigorous trials.”)</p>
-        <div class="links">
-          <a href="mailto:you@university.edu">Email</a>
-          <a href="https://github.com/YOURUSERNAME" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/your-handle/" target="_blank">LinkedIn</a>
-          <a href="/assets/CV.pdf" target="_blank">CV (PDF)</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH INTERESTS -->
-    <section id="research">
-      <h2>Research Interests</h2>
-      <span class="chip">Mindfulness-based interventions</span>
-      <span class="chip">Heart rate variability</span>
-      <span class="chip">Mixed-effects & SEM</span>
-      <span class="chip">Clinical trials</span>
-      <p style="margin-top:10px">Brief paragraph on what you study and why it matters (2–4 lines max).</p>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin:0 0 6px">Project A – Your role</h3>
-          <p>1–2 lines: problem → your methods → outcome/impact.</p>
-          <p><a class="links" href="https://github.com/YOURUSERNAME/PROJECT_A" target="_blank">Code</a> ·
-             <a class="links" href="/assets/posters/projectA.pdf" target="_blank">Poster</a></p>
-        </div>
-        <div class="card">
-          <h3 style="margin:0 0 6px">Project B – Your role</h3>
-          <p>1–2 lines here.</p>
-          <p><a class="links" href="https://github.com/YOURUSERNAME/PROJECT_B" target="_blank">Code</a> ·
-             <a class="links" href="/assets/papers/projectB.pdf" target="_blank">Paper</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS / PRESENTATIONS -->
-    <section id="pubs">
-      <h2>Publications & Presentations</h2>
-      <div class="card">
-        <p><strong>Lastname, <u>You</u></strong>, et al. (2024). Title. <em>Journal/Conference</em>.
-          <a class="links" href="/assets/papers/yourpaper.pdf" target="_blank">PDF</a> ·
-          <a class="links" href="/assets/bib/yourpaper.bib" target="_blank">BibTeX</a>
+        <h1 id="about-title">Your Name</h1>
+        <p class="intro"><strong>About</strong></p>
+        <p>
+          2–4 sentences about who you are and what you’re aiming for (e.g., “I’m a research assistant focused on
+          mindfulness-based interventions and heart rate variability. I’m preparing PhD applications in Clinical
+          Psychology and interested in rigorous, translational research.”)
         </p>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:you@university.edu">you@university.edu</a></p>
+        <!-- You can add LinkedIn/GitHub later -->
       </div>
-      <!-- Duplicate the .card block for more items -->
     </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:you@university.edu">you@university.edu</a></p>
-      <p>Optionally add department/lab, city, or office hours.</p>
-    </section>
-
     <footer>
-      © <span id="y"></span> Your Name. Last updated <span id="d"></span>.
+      © <span id="y"></span> Your Name
     </footer>
   </main>
-
   <script>
-    // auto year + simple last-updated stamp
     document.getElementById("y").textContent = new Date().getFullYear();
-    document.getElementById("d").textContent = new Date().toLocaleDateString();
   </script>
 </body>
 </html>

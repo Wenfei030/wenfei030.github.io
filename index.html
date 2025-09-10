@@ -4,117 +4,182 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Name — About</title>
+  <meta name="description" content="About — Your Name. Research interests, contact, and CV." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Inter for UI, Source Serif Pro for body copy (scholarly feel) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
   <style>
+    /* ===== Theme ===== */
     :root{
-  --carolina:#7BAFD4;      /* Carolina Blue */
-  --bg:#f7fbff;            /* very light blue */
-  --panel:#ffffff;
-  --text:#0b1f33;
-  --muted:#5b6b7a;
-  --border:#d8e7f3;
-  --max:820px;
-}
+      --accent:#99BADD;        /* Carolina Blue (requested) */
+      --accent-strong:#7da0c8; /* deeper shade for hover/focus */
+      --ink:#1a2433;           /* primary text (very dark navy) */
+      --sub:#48576b;           /* secondary text */
+      --paper:#ffffff;         /* card */
+      --bg:#f6f9fc;            /* page background */
+      --line:#e5edf5;          /* borders/dividers */
+      --max:880px;
+      --radius:18px;
+    }
 
-*{box-sizing:border-box} html,body{margin:0}
-body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
-  background: linear-gradient(180deg,#ecf5fd,#f7fbff); /* light sky background */
-  line-height:1.6;
-}
-<div class="header-bar"></div>
-/* Carolina Blue header strip */
-.header-bar{
-  height:8px; width:100%;
-  background:var(--carolina);
-}
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      color:var(--ink);
+      background:
+        radial-gradient(1400px 600px at 10% -10%, rgba(153,186,221,.18), transparent 60%),
+        radial-gradient(1200px 500px at 110% 0%, rgba(153,186,221,.12), transparent 60%),
+        var(--bg);
+      line-height:1.65;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-/* Card + layout */
-.wrap{max-width:var(--max); margin:0 auto; padding:40px 20px}
-.card{
-  background:var(--panel); border:2px solid var(--border);
-  border-radius:20px; padding:28px; box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-.about{display:grid; gap:22px; align-items:center; grid-template-columns: 220px 1fr}
+    /* Top accent bar for a professional splash of color */
+    .bar{height:8px; width:100%; background:var(--accent);}
 
-/* Photo with Carolina Blue ring */
-.photo{
-  max-width:220px; height:auto; border-radius:20px; object-fit:cover;
-  border:4px solid var(--carolina);
-  background:#eef6fd;
-}
-
-/* Typography with Carolina accents */
-h1{margin:0 0 8px; font-size:36px; line-height:1.15}
-h2{margin:18px 0 8px; font-size:18px; color:var(--carolina); letter-spacing:.02em}
-a{color:var(--carolina); text-decoration:none; font-weight:600}
-a:hover{filter:brightness(.9); text-decoration:underline}
-
-footer{color:var(--muted); text-align:center; padding:20px 0 10px}
-
-/* Mobile */
-@media (max-width:700px){
-  .about{grid-template-columns: 1fr}
-  .photo{max-width:180px; border-radius:18px; margin:0 auto}
-  h1{font-size:30px; text-align:center}
-  .intro{text-align:center}
-}
-
-    .wrap{max-width:var(--max); margin:0 auto; padding:48px 20px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px}
     .card{
-      background:var(--panel); border:1px solid var(--border);
-      border-radius:18px; padding:28px; box-shadow:0 10px 30px rgba(0,0,0,.25);
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(26,36,51,.06);
+      padding:28px;
     }
+
+    /* ===== About layout ===== */
     .about{
-      display:grid; gap:22px; align-items:center;
-      grid-template-columns: 220px 1fr; /* bigger photo */
+      display:grid;
+      grid-template-columns: 240px 1fr;
+      gap:26px;
+      align-items:center;
     }
-    .photo {
-      max-width: 240px;   /* limit width but keep proportions */
-      height: auto;       /* let height adjust automatically */
-      border-radius: 20px;
-      border: 1px solid var(--border);
+    .photo{
+      display:block;
+      width:100%;
+      max-width:240px;     /* natural proportions, not forced square */
+      height:auto;
+      border-radius:16px;
+      border:4px solid var(--accent);
+      background:#f0f6fb;
     }
-    h1{margin:0 0 8px; font-size:36px; line-height:1.15}
-    h2{margin:20px 0 10px; font-size:18px; color:var(--muted); font-weight:700; letter-spacing:.02em}
-    p{margin:0 0 12px}
-    a{color:var(--accent); text-decoration:none; font-weight:600}
-    a:hover{text-decoration:underline}
-    footer{color:var(--muted); text-align:center; padding:20px 0 10px}
-    @media (max-width:700px){
+    h1{
+      font-family:Inter, system-ui, sans-serif;
+      font-weight:800;
+      font-size:38px;
+      line-height:1.1;
+      margin:0 0 6px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      color:var(--sub);
+      margin:0 0 16px;
+      font-weight:600;
+    }
+    .lead{
+      font-family:"Source Serif 4", Georgia, serif;
+      font-size:20px;
+      margin:0 0 14px;
+    }
+    h2{
+      font-size:16px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:#25405c;
+      margin:20px 0 8px;
+    }
+    p{margin:0 0 12px; font-family:"Source Serif 4", Georgia, serif;}
+
+    .links{margin-top:10px}
+    .btn{
+      display:inline-block;
+      border:1px solid var(--accent);
+      background:linear-gradient(#fff, #f9fbfe);
+      color:#0f2438;
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:10px;
+      margin-right:10px;
+    }
+    .btn:hover{border-color:var(--accent-strong)}
+    .link{color:#0f4a7a; text-underline-offset:3px}
+    .link:hover{color:var(--accent-strong)}
+
+    footer{
+      color:var(--sub);
+      text-align:center;
+      padding:22px 0 30px;
+      font-size:14px;
+    }
+
+    /* Subtle section divider using the accent hue */
+    .rule{
+      height:2px; width:100%;
+      background:linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin:12px 0 6px;
+      border-radius:2px;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width:760px){
       .about{grid-template-columns: 1fr}
-      .photo{width:160px; height:160px; border-radius:18px; margin:0 auto}
-      h1{font-size:30px; text-align:center}
-      .intro{text-align:center}
+      .photo{max-width:200px; margin:0 auto 6px}
+      h1{font-size:32px; text-align:center}
+      .subtitle, .lead{ text-align:center }
+      .links{ text-align:center }
+    }
+
+    /* ===== Print (CV reviewers often print) ===== */
+    @media print{
+      .bar{display:none}
+      body{background:#fff}
+      .card{box-shadow:none}
     }
   </style>
 </head>
 <body>
+  <div class="bar" aria-hidden="true"></div>
+
   <main class="wrap">
     <section class="card about" aria-labelledby="about-title">
-      <img class="photo" src="/assets/img/GitHubPhoto.jpg" alt="Headshot of Wenfei">
+      <img class="photo" src="/assets/img/headshot.jpg" alt="Headshot of Your Name">
       <div>
-        <h1 id="about-title">Wenfei Yu</h1>
-        <p class="intro"><strong>About</strong></p>
-        <p>
-          2–4 sentences about who you are and what you’re aiming for (e.g., “I’m a research assistant focused on
-          mindfulness-based interventions and heart rate variability. I’m preparing PhD applications in Clinical
-          Psychology and interested in rigorous, translational research.”)
+        <h1 id="about-title">Your Name</h1>
+        <p class="subtitle">Prospective graduate student • [Field / Program]</p>
+        <p class="lead">
+          2–4 sentences introducing your research focus and objectives (e.g., “I study mindfulness-based interventions,
+          heart rate variability, and longitudinal modeling. I’m interested in translational clinical science and methods
+          that strengthen causal inference in real-world trials.”)
         </p>
+
+        <div class="rule" role="presentation"></div>
+
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:wenfei.030@gmail.com">wenfei.030@gmail.com</a></p>
-        <!-- You can add LinkedIn/GitHub later -->
+        <p>Email: <a class="link" href="mailto:you@university.edu">you@university.edu</a></p>
+        <!-- Add items later as you wish:
+        <p>Dept/Lab, University</p>
+        -->
+
+        <div class="links">
+          <!-- Optional buttons (uncomment when ready) -->
+          <!-- <a class="btn" href="/assets/CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+          <a class="btn" href="https://www.linkedin.com/in/your-handle/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener">GitHub</a> -->
+        </div>
       </div>
     </section>
+
     <footer>
-      © <span id="y"></span> Wenfei Yu
+      © <span id="y"></span> Your Name · Last updated <span id="d"></span>
     </footer>
   </main>
+
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("d").textContent = new Date().toLocaleDateString();
   </script>
 </body>
 </html>

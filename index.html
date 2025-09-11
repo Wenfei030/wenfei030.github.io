@@ -39,6 +39,13 @@
 
     /* Top accent bar */
     .bar{height:8px; width:100%; background:var(--accent);}
+    .nav{
+  max-width:var(--max); margin:0 auto; padding:10px 20px 0;
+  display:flex; gap:16px; font-weight:600;
+}
+.nav a{ color:#0f4a7a; text-decoration:none; padding:6px 8px; border-radius:8px }
+.nav a:hover{ background:rgba(153,186,221,.18) }
+
 
     .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px}
     .card{
@@ -141,6 +148,10 @@
 </head>
 <body>
   <div class="bar" aria-hidden="true"></div>
+  <nav class="nav" aria-label="Primary">
+  <a href="/">About</a>
+  <a href="/current-work.html">Current Work</a>
+</nav>
 
   <main class="wrap">
     <section class="card about" aria-labelledby="about-title">

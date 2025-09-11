@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wenfei Yu — Publications</title>
-  <meta name="description" content="Peer-reviewed publications, manuscripts, and conference presentations by Wenfei Yu." />
+  <meta name="description" content="Published articles, manuscripts, and conference presentations by Wenfei Yu." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -33,7 +33,6 @@
     }
     .bar{height:8px; width:100%; background:var(--accent);}
 
-    /* top nav (matches About page) */
     .nav{
       max-width:var(--max); margin:0 auto; padding:10px 20px 0;
       display:flex; gap:16px; font-weight:600;
@@ -53,9 +52,9 @@
     h2{font-size:18px; letter-spacing:.02em; margin:8px 0 12px; color:#25405c}
     ol{margin:0 0 6px 22px; padding:0}
     li{margin:0 0 12px; font-family:"Source Serif 4", Georgia, serif}
+
     .me{ text-decoration:underline } /* underline your name */
     .meta{ color:var(--sub) }
-
     .links{ margin-top:6px }
     .a{ color:#0f4a7a; text-underline-offset:3px; text-decoration:underline }
     .a:hover{ color:var(--accent-strong) }
@@ -65,9 +64,6 @@
       border:1px solid var(--line); background:#f8fbff; margin-left:8px; font-size:12px; color:#274564
     }
 
-    /* compact list inside sections */
-    .section-note{color:#4b5d72; font-size:14px; margin:6px 0 0}
-
     footer{color:var(--sub); text-align:center; padding:22px 0 30px; font-size:14px}
     @media print{ .bar{display:none} body{background:#fff} .card{box-shadow:none} }
   </style>
@@ -76,22 +72,22 @@
   <div class="bar" aria-hidden="true"></div>
   <nav class="nav" aria-label="Primary">
     <a href="/">About</a>
-    <a href="/publications.html">Publications</a>
+    <a href="/publications.html" aria-current="page">Publications</a>
   </nav>
 
   <main class="wrap">
     <section class="card">
       <h1>Publications</h1>
-      <p class="sub">Peer-reviewed work, manuscripts in progress, and conference dissemination</p>
-      <p class="meta">Links to PDFs, DOIs, and BibTeX provided when available.</p>
+      <p class="sub">Published articles, manuscripts in progress, and conference dissemination</p>
+      <p class="meta">Links to PDFs, DOIs, and BibTeX provided when available. Your name is underlined in author lists.</p>
     </section>
 
-    <!-- Peer-Reviewed Publications -->
+    <!-- Published Articles -->
     <section class="card">
-      <h2>Peer-Reviewed Publications</h2>
+      <h2>Published Articles</h2>
       <ol>
         <li>
-          Lastname, <span class="me">Wenfei Yu</span>, Coauthor, A. B., & Coauthor, C. D. (2024).
+          <span class="me">Yu, W.</span>, Coauthor, A. B., &amp; Coauthor, C. D. (2024).
           Title of the article. <em>Journal Name</em>, 12(3), 123–145.
           <span class="links">
             <a class="a" href="#" target="_blank" rel="noopener">PDF</a> ·
@@ -99,9 +95,8 @@
             <a class="a" href="/assets/bib/yu2024.bib" target="_blank" rel="noopener">BibTeX</a>
           </span>
         </li>
-        <!-- Add more <li> items as needed -->
+        <!-- Duplicate <li> for more articles -->
       </ol>
-      <p class="section-note"><em>Authorship order reflects journal conventions; your name is underlined.</em></p>
     </section>
 
     <!-- Manuscripts Under Review & In Preparation -->
@@ -109,15 +104,15 @@
       <h2>Manuscripts Under Review &amp; In Preparation</h2>
       <ol>
         <li>
-          <span class="me">Wenfei Yu</span>, Coauthor, A. B., & Coauthor, C. D. (in review).
+          <span class="me">Yu, W.</span>, Coauthor, A. B., &amp; Coauthor, C. D. (in review).
           Provisional title of the manuscript. <em>Target Journal</em>.
           <span class="pill">Under Review</span>
           <span class="links">
-            <a class="a" href="#" target="_blank" rel="noopener">Preprint / PDF (optional)</a>
+            <a class="a" href="#" target="_blank" rel="noopener">Preprint / PDF</a>
           </span>
         </li>
         <li>
-          <span class="me">Wenfei Yu</span>, et&nbsp;al. (in preparation).
+          <span class="me">Yu, W.</span>, et&nbsp;al. (in preparation).
           Working title of the manuscript. <em>Intended outlet</em>.
           <span class="pill">In Preparation</span>
         </li>
@@ -129,7 +124,7 @@
       <h2>Conference Presentations &amp; Scientific Posters</h2>
       <ol>
         <li>
-          <span class="me">Wenfei Yu</span>, Coauthor, A. B. (2025, April).
+          <span class="me">Yu, W.</span>, Coauthor, A. B. (2025, April).
           Poster title. <em>Society of Biological Psychiatry (SOBP)</em>, Austin, TX.
           <span class="pill">Poster</span>
           <span class="links">
@@ -138,7 +133,7 @@
           </span>
         </li>
         <li>
-          <span class="me">Wenfei Yu</span>, Coauthor, A. B. (2024, November).
+          <span class="me">Yu, W.</span>, Coauthor, A. B. (2024, November).
           Talk title. <em>Conference Name</em>, City, State.
           <span class="pill">Talk</span>
           <span class="links">

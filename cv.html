@@ -39,7 +39,8 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:24px 20px 28px}
     h1{font-size:28px; margin:8px 0 14px; font-weight:800; letter-spacing:.2px}
 
-    .controls{
+    /* Format options (top) */
+    .format-options{
       display:flex; flex-wrap:wrap; gap:8px; align-items:center;
       background:var(--paper); border:1px solid var(--line); border-radius:12px;
       padding:10px 12px; margin:10px 0 14px;
@@ -49,8 +50,17 @@
       color:#0f2438; border:1px solid var(--accent); background:linear-gradient(#fff,#f9fbfe);
     }
     .btn:hover{border-color:var(--accent-strong)}
+
+    /* Viewer controls */
+    .controls{
+      display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+      background:var(--paper); border:1px solid var(--line); border-radius:12px;
+      padding:10px 12px; margin:10px 0 14px;
+    }
     .sep{width:1px; height:26px; background:var(--line); margin:0 2px}
     .status{color:#274564; font-weight:600; margin-left:6px}
+
+    /* Viewer area */
     .viewer{
       background:var(--paper); border:1px solid var(--line); border-radius:12px;
       box-shadow:0 10px 30px rgba(26,36,51,.06);
@@ -75,11 +85,17 @@
   <main class="wrap">
     <div class="topbar">
       <h1>Curriculum Vitae — Wenfei Yu</h1>
+    </div>
+
+    <!-- Three clear options -->
+    <div class="format-options" role="navigation" aria-label="CV format options">
+      <a class="btn" href="/cv-plain.html">View as HTML (Most accessible)</a>
+      <a class="btn" href="/assets/YuWenfei_CV.pdf" target="_blank" rel="noopener">Open PDF</a>
       <a class="btn" href="/assets/YuWenfei_CV.pdf" download>Download PDF</a>
     </div>
 
-    <!-- Controls -->
-    <div class="controls" role="toolbar" aria-label="CV controls">
+    <!-- Page-by-page viewer controls -->
+    <div class="controls" role="toolbar" aria-label="CV viewer controls">
       <button class="btn" id="prev" type="button" aria-label="Previous page">← Prev</button>
       <button class="btn" id="next" type="button" aria-label="Next page">Next →</button>
       <span class="status">Page <span id="page_num">1</span> of <span id="page_count">—</span></span>
@@ -99,7 +115,6 @@
   <!-- PDF.js (via jsDelivr CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script>
-    // Point the worker to the same version on the CDN
     pdfjsLib.GlobalWorkerOptions.workerSrc =
       "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
 
@@ -134,17 +149,14 @@
         const renderTask = page.render({ canvasContext: ctx, viewport });
         renderTask.promise.then(() => {
           rendering = false;
-          if (pending !== null) {
-            const n = pending; pending = null; renderPage(n);
-          }
+          if (pending !== null) { const n = pending; pending = null; renderPage(n); }
         });
         pageNumSpan.textContent = num;
       });
     }
 
     function queueRenderPage(num) {
-      if (rendering) { pending = num; }
-      else { renderPage(num); }
+      if (rendering) { pending = num; } else { renderPage(num); }
     }
 
     function showPage(num) {
@@ -153,7 +165,6 @@
       queueRenderPage(pageNum);
     }
 
-    // Load the PDF
     pdfjsLib.getDocument(url).promise.then(pdf => {
       pdfDoc = pdf;
       pageCountSpan.textContent = pdf.numPages;

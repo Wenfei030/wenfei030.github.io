@@ -7,7 +7,6 @@
   <meta name="description" content="About — Wenfei Yu. Research interests, contact, and CV." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Inter for UI, Source Serif Pro for body copy -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -34,8 +33,16 @@
       max-width:var(--max); margin:0 auto; padding:10px 20px 0;
       display:flex; gap:16px; font-weight:600;
     }
-    .nav a{ color:#0f4a7a; text-decoration:none; padding:6px 8px; border-radius:8px }
+    .nav a{
+      color:#0f4a7a; text-decoration:none; padding:6px 10px; border-radius:8px
+    }
     .nav a:hover{ background:rgba(153,186,221,.18) }
+    /* Active page highlight */
+    .nav a[aria-current="page"]{
+      background:rgba(153,186,221,.28);
+      outline:2px solid var(--accent);
+      outline-offset:-2px;
+    }
 
     .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px}
     .card{
@@ -45,9 +52,7 @@
     }
 
     /* About layout */
-    .about{
-      display:grid; grid-template-columns: 280px 1fr; gap:32px; align-items:center;
-    }
+    .about{ display:grid; grid-template-columns: 280px 1fr; gap:32px; align-items:center; }
     .photo{
       display:block; width:100%; max-width:240px; height:auto;
       border-radius:16px; border:4px solid var(--accent); background:#f0f6fb;
@@ -74,18 +79,13 @@
 
     footer{color:var(--sub); text-align:center; padding:22px 0 30px; font-size:14px}
 
-    /* Mobile */
     @media (max-width:760px){
       .about{grid-template-columns: 1fr}
       .photo{max-width:200px; margin:0 auto 6px}
       h1{font-size:32px; text-align:center}
       .subtitle, .lead{ text-align:center }
     }
-
-    /* Print */
-    @media print{
-      .bar{display:none} body{background:#fff} .card{box-shadow:none}
-    }
+    @media print{ .bar{display:none} body{background:#fff} .card{box-shadow:none} }
   </style>
 </head>
 <body>
@@ -112,8 +112,8 @@
           access to evidence-based care for underserved populations.
         </p>
 
-        <!-- CV button (opens the dedicated CV page) -->
-        <a class="btn" href="/cv.html" target="_blank" rel="noopener">Curriculum Vitae</a>
+        <!-- CV button (now same tab) -->
+        <a class="btn" href="/cv.html" rel="noopener">Curriculum Vitae</a>
       </div>
     </section>
 
@@ -121,13 +121,10 @@
     <section class="card" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
       <ul class="contact-list">
-        <li>LinkedIn: <a class="link" href="https://www.linkedin.com/in/wy075/" target="_blank" rel="noopener">linkedin.com/in/wy075</a></li>
+        <li><strong>LinkedIn:</strong> <a class="link" href="https://www.linkedin.com/in/wy075/" target="_blank" rel="noopener">linkedin.com/in/wy075</a></li>
         <li>
-          Email: <span id="email-text">wenfei.030@gmail.com</span>
+          <strong>Email:</strong> <span id="email-text">wenfei.030@gmail.com</span>
           <button class="btn" id="copy-email" type="button" style="margin-left:8px">Copy</button>
-          <!-- If you also want a link that opens Gmail compose in a new tab, add:
-          <div><a class="link" href="https://mail.google.com/mail/?view=cm&fs=1&to=wenfei.030@gmail.com" target="_blank" rel="noopener">Compose in Gmail</a></div>
-          -->
         </li>
       </ul>
     </section>
@@ -137,7 +134,7 @@
     </footer>
   </main>
 
-  <!-- Small helpers: auto-year, last-updated, copy email -->
+  <!-- helpers -->
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
     document.getElementById("d").textContent = new Date().toLocaleDateString();

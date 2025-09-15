@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wenfei Yu — CV</title>
+  <meta name="description" content="Curriculum Vitae — Wenfei Yu" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#99BADD; --accent-strong:#7da0c8; --ink:#1a2433; --sub:#48576b;
+      --paper:#ffffff; --bg:#f6f9fc; --line:#e5edf5; --max:1100px; --radius:18px;
+    }
+    *{box-sizing:border-box} html,body{margin:0}
+    body{
+      color:var(--ink);
+      background:
+        radial-gradient(1400px 600px at 10% -10%, rgba(153,186,221,.18), transparent 60%),
+        radial-gradient(1200px 500px at 110% 0%, rgba(153,186,221,.12), transparent 60%),
+        var(--bg);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .bar{height:8px; background:var(--accent)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px 20px 28px}
+    .top{display:flex; justify-content:space-between; align-items:center; gap:12px}
+    h1{font-size:28px; margin:8px 0 14px}
+    .card{
+      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(26,36,51,.06); padding:16px; margin-top:14px;
+    }
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px; font-weight:600;
+      text-decoration:none; color:#0f2438; border:1px solid var(--accent);
+      background:linear-gradient(#fff,#f9fbfe);
+    }
+    .btn:hover{border-color:var(--accent-strong)}
+    .iframe-wrap{
+      height:85vh; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;
+    }
+    iframe{width:100%; height:100%; border:0}
+    .nav{margin-top:6px}
+    .nav a{color:#0f4a7a; text-decoration:none; font-weight:600}
+    .nav a:hover{text-decoration:underline}
+    @media (max-width:700px){ .iframe-wrap{height:80vh} }
+  </style>
+</head>
+<body>
+  <div class="bar" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <div class="top">
+      <h1>Curriculum Vitae — Wenfei Yu</h1>
+      <div>
+        <!-- “download” attribute suggests saving the file instead of opening it -->
+        <a class="btn" href="/assets/YuWenfei CV.pdf" download target="_blank" rel="noopener">Download PDF</a>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="/">← Back to About</a> · <a href="/publications.html">Publications</a>
+    </div>
+
+    <!-- Embedded viewer -->
+    <div class="card iframe-wrap" role="region" aria-label="CV viewer">
+      <iframe
+        src="/assets/Wenfei_Yu_CV.pdf#view=FitH"
+        title="Wenfei Yu CV PDF"
+      ></iframe>
+    </div>
+  </main>
+</body>
+</html>

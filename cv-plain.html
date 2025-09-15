@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wenfei Yu — CV (HTML)</title>
+  <meta name="description" content="Accessible HTML version of the CV for Wenfei Yu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#99BADD; --accent-strong:#7da0c8; --ink:#1a2433; --sub:#48576b;
+      --paper:#ffffff; --bg:#f6f9fc; --line:#e5edf5; --max:900px; --radius:12px;
+    }
+    *{box-sizing:border-box} html,body{margin:0}
+    body{
+      color:var(--ink);
+      background:
+        radial-gradient(1400px 600px at 10% -10%, rgba(153,186,221,.18), transparent 60%),
+        radial-gradient(1200px 500px at 110% 0%, rgba(153,186,221,.12), transparent 60%),
+        var(--bg);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+    .bar{height:8px; background:var(--accent)}
+    .nav{
+      max-width:var(--max); margin:0 auto; padding:10px 20px 0;
+      display:flex; gap:16px; font-weight:600;
+    }
+    .nav a{ color:#0f4a7a; text-decoration:none; padding:6px 10px; border-radius:8px }
+    .nav a:hover{ background:rgba(153,186,221,.18) }
+    .nav a[aria-current="page"]{
+      background:rgba(153,186,221,.28);
+      outline:2px solid var(--accent); outline-offset:-2px; color:#0b263f;
+    }
+
+    main{max-width:var(--max); margin:0 auto; padding:28px 20px 36px}
+    header{margin-bottom:8px}
+    h1{font-size:30px; margin:6px 0 6px; font-weight:800}
+    .meta{color:var(--sub); margin:0 0 18px}
+    .meta a{color:#0f4a7a; text-decoration:none}
+    .meta a:hover{ text-decoration:underline }
+
+    section{
+      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+      padding:16px 18px; margin:14px 0;
+    }
+    h2{
+      font-size:16px; letter-spacing:.04em; text-transform:uppercase;
+      color:#25405c; margin:0 0 10px
+    }
+    h3{font-size:16px; margin:10px 0 4px}
+    .row{display:flex; justify-content:space-between; gap:16px; align-items:baseline}
+    .where{font-weight:600}
+    .title{font-weight:600}
+    .when{color:#4b5d72; white-space:nowrap}
+    .loc{color:#4b5d72}
+    ul{margin:6px 0 0 18px}
+    li{margin:3px 0}
+    em{font-style:italic}
+    .pill{
+      display:inline-block; padding:3px 8px; border-radius:999px; border:1px solid var(--line);
+      background:#f8fbff; font-size:12px; color:#274564; margin-left:8px
+    }
+    .small{font-size:14px; color:#4b5d72}
+  </style>
+</head>
+<body>
+  <div class="bar" aria-hidden="true"></div>
+
+  <!-- Top nav -->
+  <nav class="nav" aria-label="Primary">
+    <a href="/">About</a>
+    <a href="/publications.html">Publications</a>
+    <a href="/cv.html" aria-current="page">CV</a>
+  </nav>
+
+  <main>
+    <header>
+      <h1>Wenfei Yu</h1>
+      <p class="meta">
+        <span class="loc">Columbus, OH</span> ·
+        <a href="mailto:wenfei.030@gmail.com">wenfei.030@gmail.com</a> ·
+        <a href="tel:+12072748302">+1 (207) 274-8302</a> ·
+        <a href="https://www.linkedin.com/in/wy075/" target="_blank" rel="noopener">linkedin.com/in/wy075</a> ·
+        <a href="https://wenfei030.github.io/">wenfei030.github.io</a>
+      </p>
+    </header>
+
+    <!-- EDUCATION -->
+    <section aria-labelledby="edu">
+      <h2 id="edu">Education</h2>
+      <div class="row">
+        <div>
+          <div class="where">University of North Carolina at Chapel Hill — Chapel Hill, NC</div>
+          <div>Psychology, B.S.; Minors in Neuroscience and Data Science</div>
+          <div class="small">Major GPA: 3.75 / 4.00 · Honors: Graduation with Distinction, Dean’s List, Carolina Research Scholar</div>
+          <div class="small">Research interests: Underrepresented community mental health; cultural-specific therapy; psychopathology; positive youth development &amp; digital tools; childhood maltreatment</div>
+        </div>
+        <div class="when">Aug 2020 – May 2024</div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section aria-labelledby="pubs">
+      <h2 id="pubs">Publications</h2>
+      <ul>
+        <li>
+          Badola, A., <u>Yu, W.</u> (2025). Mindfulness-Based Interventions for Psychological Trauma and Posttraumatic Stress Disorder (PTSD).
+          <em>Current Treatment Options in Psychiatry, 12</em>, 29. <a href="https://doi.org/10.1007/s40501-025-00364-x" target="_blank" rel="noopener">https://doi.org/10.1007/s40501-025-00364-x</a>
+        </li>
+        <li>
+          <u>Yu, W.</u>, et al. (2025). 179. Ketamine-assisted mindfulness-based cognitive therapy for treatment-resistant depression [Abstract].
+          <em>Biological Psychiatry, 97</em>(9S), S168–S169. <a href="https://doi.org/10.1016/j.biopsych.2025.02.416" target="_blank" rel="noopener">https://doi.org/10.1016/j.biopsych.2025.02.416</a>
+        </li>
+        <li>
+          <span class="title">Behavior Change Techniques used in Just-In-Time Adaptive Interventions for Smoking Cessation: A Systematic Review and Meta-Analysis.</span>
+          Gottfredson O’Shea, N., Hurley, L., Gurumurthy, N., Pei, Y., Kazemi, M., <u>Yu, W.</u>, Dhillon, A. S., Choi, S. M., &amp; Nezami, B. T. <span class="pill">In Review</span>
+        </li>
+        <li>
+          <span class="title">Effect of Childhood Maltreatment in Treatment Effectiveness.</span> <u>Yu, W.</u>, et al. <span class="pill">In Preparation</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- POSTERS & PRESENTATIONS -->
+    <section aria-labelledby="talks">
+      <h2 id="talks">Posters &amp; Presentations</h2>
+      <ul>
+        <li>
+          <u>Wenfei Yu</u>, Arushi Badola, Sophie Lazarus, Anne-Marie Duchemin, Subhdeep Virk, Anthony King (May 2025).
+          Extending Therapeutic Effect of Ketamine for Treatment-Resistant Depression using Mindfulness-Based Treatment.
+          Presented at <em>EPICENTER Research Day</em>, Columbus, OH.
+        </li>
+        <li>
+          Arushi Badola, <u>Wenfei Yu</u>, Anthony King (May 2025).
+          Mindfulness-Based Intervention Effects on DMN Cross-Network Resting FC Associated with Symptom Improvement.
+          Presented at <em>EPICENTER Research Day</em>, Columbus, OH.
+        </li>
+        <li>
+          <u>Wenfei Yu</u>, Arushi Badola, Sophie Lazarus, Anne-Marie Duchemin, Subhdeep Virk, Anthony King (Apr 2025).
+          Pilot Study: Ketamine-Assisted Mindfulness-Based Cognitive Therapy for Treatment-Resistant Depression.
+          Presented at the annual meeting of <em>Anxiety &amp; Depression Conference</em>, Las Vegas, NV and the annual meeting of <em>Society of Biological Psychiatry</em>, Toronto, Canada. <span class="small">(Updated data from Cohort 2)</span>
+        </li>
+        <li>
+          Arushi Badola, Jimmy Jagan, Subhashini Madhavan, <u>Wenfei Yu</u>, Anthony P. King (Apr 2025).
+          Aberrant Functional Connectivity (rsFC) Between Subgenual ACC and Default Mode Network in Adults with History of Childhood Maltreatment.
+          Presented at the annual meeting of <em>Anxiety &amp; Depression Conference</em>, Las Vegas, NV and the annual meeting of <em>Society of Biological Psychiatry</em>, Toronto, Canada.
+        </li>
+        <li>
+          <u>Selina Shi</u>, <u>Wenfei Yu</u>, and Guorong Wu (Apr 2024).
+          Neuroimaging Preprocessing, Denoising, and Quality Control.
+          Presented at the <em>Celebration of Undergraduate Research</em>, UNC Chapel Hill, NC.
+        </li>
+        <li>
+          <u>Wenfei Yu</u>, Arushi Badola, Sophie Lazarus, Anne-Marie Duchemin, Subhdeep Virk, Anthony King (Nov 2024).
+          Pilot Study: Ketamine-Assisted Mindfulness-Based Cognitive Therapy for Treatment-Resistant Depression.
+          Presented at <em>IBMR Research Day</em>, Columbus, OH.
+        </li>
+      </ul>
+    </section>
+
+    <!-- RESEARCH EXPERIENCE -->
+    <section aria-labelledby="rex">
+      <h2 id="rex">Research Experience</h2>
+
+      <h3 class="row"><span class="title">Clinical Research Assistant — The Mindfulness Lab</span> <span class="when">Aug 2024 – Present</span></h3>
+      <div class="row"><span class="where">OSU Wexner Medical Center, Dept. of Psychiatry — Columbus, OH</span> <span>Director: Anthony P. King, PhD</span></div>
+      <ul>
+        <li>Coordinate all phases of clinical studies: protocol development, IRB, recruitment/retention, study visits, data collection/management.</li>
+        <li>Perform data cleaning and statistical analysis in R for manuscripts, conferences, and internal reporting.</li>
+        <li>Preprocess and analyze neuroimaging/physiological data (EEG, MRI, HRV) to support study outcomes.</li>
+        <li>Design/manage REDCap, Qualtrics, and EMA databases; develop complex surveys and longitudinal tracking.</li>
+        <li>Train and supervise undergraduate RAs; create SOPs and training materials (manuals, video tutorials).</li>
+        <li>Handle lab operations: spend authorizations, expense reports, and purchasing coordination.</li>
+      </ul>
+
+      <h3 class="row"><span class="title">Research Assistant — Stress and Anxiety Lab</span> <span class="when">Aug 2023 – Aug 2024</span></h3>
+      <div class="row"><span class="where">UNC Department of Psychology — Chapel Hill, NC</span> <span>Director: Jonathan Abramowitz, PhD</span></div>
+      <ul>
+        <li>Backfilled data weekly for an NIMH-funded longitudinal perinatal OCD study via REDCap.</li>
+        <li>Assembled biospecimen kits and supported participant data collection.</li>
+        <li>Conducted full-text screening for a meta-analysis on symptom dimensions in OCD research.</li>
+      </ul>
+
+      <h3 class="row"><span class="title">Research Assistant — Behavior Change Technique (BCT) Meta-analysis</span> <span class="when">Apr 2022 – Jul 2023</span></h3>
+      <div class="row"><span class="where">UNC Gillings School of Public Health, Dept. of Health Behavior — Chapel Hill, NC</span> <span>Director: Nisha Gottfredson O’Shea, PhD</span></div>
+      <ul>
+        <li>Performed literature review, full-text screening, and extraction for a meta-analysis on JIT mobile health interventions focused on inhibitory self-efficacy. <span class="pill">1 manuscript under review</span></li>
+        <li>Analyzed binary proportion standardized mean differences (35+ studies) using Cohen’s d and Hedges’ g.</li>
+      </ul>
+
+      <h3 class="row"><span class="title">Research Assistant — Advanced Computational Medicine Lab</span> <span class="when">Dec 2022 – Mar 2023</span></h3>
+      <div class="row"><span class="where">UNC Department of Psychiatry — Chapel Hill, NC</span></div>
+      <ul>
+        <li>Performed MRI regional volume analysis with ITK-SNAP to obtain brain volume data for CHD8 studies in mice.</li>
+        <li>Segmented/QC’d MRI and Light-Sheet Microscopy images (10+ mouse brain image sets) using ITK-SNAP.</li>
+      </ul>
+
+      <h3 class="row"><span class="title">Research Volunteer — UNC Weight Research</span> <span class="when">Sept 2023 – Dec 2023</span></h3>
+      <div class="row"><span class="where">UNC Lineberger Comprehensive Cancer Center — Chapel Hill, NC</span></div>
+      <ul>
+        <li>Edited educational video tutorials for cancer survivors (positive psychology &amp; weight loss) using Adobe Premiere Pro.</li>
+      </ul>
+    </section>
+
+    <!-- CLINICAL EXPERIENCE -->
+    <section aria-labelledby="clin">
+      <h2 id="clin">Clinical Experience</h2>
+
+      <h3 class="row"><span class="title">Clinical Administrative Assistant — Calhoun Psychology PLLC</span> <span class="when">Aug 2023 – Aug 2024</span></h3>
+      <div class="row"><span class="where">Chapel Hill, NC</span> <span>Director: Casey D. Calhoun, PhD</span></div>
+      <ul>
+        <li>Built an online referral system (JavaScript) to route referrals and send automated updates; authored a step-by-step ops manual with video tutorials.</li>
+        <li>Reviewed clinician documentation, ensured data accuracy, and produced monthly therapy session reports.</li>
+        <li>Created procedure protocols to maintain the clinic reporting system.</li>
+        <li>Designed admin/marketing materials and liaised with community networks for optimized referrals.</li>
+        <li>Summarized self-report assessment scores and finalized data tables for clinical reports.</li>
+      </ul>
+
+      <h3 class="row"><span class="title">Counseling Assistant Intern — ZhuJunHao Psychology</span> <span class="when">Jul 2023 – Jan 2024</span></h3>
+      <div class="row"><span class="where">Beijing, China</span></div>
+      <ul>
+        <li>Managed online reception, responded to inquiries, coordinated weekly follow-ups, and scheduled consultations.</li>
+        <li>Analyzed assessment scales based on training in therapeutic assessments and counseling measures.</li>
+        <li>Conducted literature reviews and drafted biweekly web articles on popular psychological topics.</li>
+        <li>Supported social media / public account operations and marketing.</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section aria-labelledby="projects">
+      <h2 id="projects">Projects</h2>
+      <h3 class="row"><span class="title">A Web-Based Platform to Promote Transitioning Student’s Confidence</span> <span class="when">Spring 2024</span></h3>
+      <ul>
+        <li>Developed a web-based VR game (3D video editing) to support students’ belonging and confidence during school transition.</li>
+        <li>Designed protocol using community-based research strategies; interviewed school principal, social worker, and alumni representative.</li>
+      </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section aria-labelledby="skills">
+      <h2 id="skills">Skills</h2>
+      <ul>
+        <li><strong>Programming:</strong> R, Python, MATLAB, EEGLAB, JavaScript, fMRIPrep, CONN Toolbox, SPSS</li>
+        <li><strong>Database:</strong> REDCap, EMA, Covidence (systematic review), Qualtrics</li>
+        <li><strong>Other:</strong> ITK-SNAP, Adobe Premiere Pro (2D/3D video), Adobe Photoshop, Microsoft Office Suite</li>
+      </ul>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section aria-labelledby="certs">
+      <h2 id="certs">Certificates</h2>
+      <ul>
+        <li>EMBARK training on Major Depressive Disorder</li>
+        <li>MRI Safety Training</li>
+        <li>MRI Study Personnel Training</li>
+        <li>CITI Program Essential Trainings for Clinical Research</li>
+        <li>Behavior Change Technique (BCT) Taxonomy</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

@@ -29,35 +29,37 @@
       max-width:var(--max); margin:0 auto; padding:10px 20px 0;
       display:flex; gap:16px; font-weight:600;
     }
-    .nav a{
-      color:#0f4a7a; text-decoration:none; padding:6px 10px; border-radius:8px
-    }
+    .nav a{ color:#0f4a7a; text-decoration:none; padding:6px 10px; border-radius:8px }
     .nav a:hover{ background:rgba(153,186,221,.18) }
     .nav a[aria-current="page"]{
       background:rgba(153,186,221,.28);
-      outline:2px solid var(--accent);
-      outline-offset:-2px;
+      outline:2px solid var(--accent); outline-offset:-2px; color:#0b263f;
     }
 
     .wrap{max-width:var(--max); margin:0 auto; padding:24px 20px 28px}
     h1{font-size:28px; margin:8px 0 14px; font-weight:800; letter-spacing:.2px}
 
-    .top{display:flex; justify-content:space-between; align-items:center; gap:12px}
+    .controls{
+      display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+      background:var(--paper); border:1px solid var(--line); border-radius:12px;
+      padding:10px 12px; margin:10px 0 14px;
+    }
     .btn{
-      display:inline-block; padding:10px 14px; border-radius:10px; font-weight:600; text-decoration:none;
+      display:inline-block; padding:8px 12px; border-radius:10px; font-weight:600; text-decoration:none;
       color:#0f2438; border:1px solid var(--accent); background:linear-gradient(#fff,#f9fbfe);
     }
     .btn:hover{border-color:var(--accent-strong)}
-
-    .card{
-      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
-      box-shadow:0 10px 30px rgba(26,36,51,.06); padding:16px; margin-top:14px;
+    .sep{width:1px; height:26px; background:var(--line); margin:0 2px}
+    .status{color:#274564; font-weight:600; margin-left:6px}
+    .viewer{
+      background:var(--paper); border:1px solid var(--line); border-radius:12px;
+      box-shadow:0 10px 30px rgba(26,36,51,.06);
+      display:flex; justify-content:center; align-items:center; padding:16px;
+      min-height:70vh; overflow:auto;
     }
-    .iframe-wrap{
-      height:85vh; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;
-    }
-    iframe{width:100%; height:100%; border:0}
-    @media (max-width:700px){ .iframe-wrap{height:80vh} }
+    canvas{ max-width:100%; height:auto; display:block }
+    .topbar{display:flex; justify-content:space-between; align-items:center; gap:12px}
+    @media (max-width:700px){ .viewer{min-height:60vh} }
   </style>
 </head>
 <body>
@@ -71,14 +73,103 @@
   </nav>
 
   <main class="wrap">
-    <div class="top">
+    <div class="topbar">
       <h1>Curriculum Vitae — Wenfei Yu</h1>
       <a class="btn" href="/assets/YuWenfei_CV.pdf" download>Download PDF</a>
     </div>
 
-    <div class="card iframe-wrap" role="region" aria-label="CV viewer">
-      <iframe src="/assets/YuWenfei_CV.pdf#view=FitH" title="Wenfei Yu CV PDF"></iframe>
+    <!-- Controls -->
+    <div class="controls" role="toolbar" aria-label="CV controls">
+      <button class="btn" id="prev" type="button" aria-label="Previous page">← Prev</button>
+      <button class="btn" id="next" type="button" aria-label="Next page">Next →</button>
+      <span class="status">Page <span id="page_num">1</span> of <span id="page_count">—</span></span>
+      <span class="sep" aria-hidden="true"></span>
+      <button class="btn" id="zoom_out" type="button" aria-label="Zoom out">−</button>
+      <button class="btn" id="zoom_in" type="button" aria-label="Zoom in">+</button>
+      <button class="btn" id="fit_width" type="button" aria-label="Fit to width">Fit to width</button>
+      <button class="btn" id="fit_actual" type="button" aria-label="Actual size">100%</button>
+    </div>
+
+    <!-- Viewer -->
+    <div class="viewer" role="region" aria-label="CV viewer">
+      <canvas id="pdf-canvas"></canvas>
     </div>
   </main>
+
+  <!-- PDF.js (via jsDelivr CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script>
+    // Point the worker to the same version on the CDN
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+
+    const url = "/assets/YuWenfei_CV.pdf"; // your PDF (same origin)
+
+    let pdfDoc = null,
+        pageNum = 1,
+        scale = 1.2,          // base zoom
+        fitToWidth = true,    // start in "fit to width"
+        rendering = false,
+        pending = null;
+
+    const canvas = document.getElementById("pdf-canvas");
+    const ctx = canvas.getContext("2d");
+    const pageNumSpan = document.getElementById("page_num");
+    const pageCountSpan = document.getElementById("page_count");
+
+    function calcFitScale(page) {
+      const desiredWidth = document.querySelector(".viewer").clientWidth - 32; // padding
+      const viewport = page.getViewport({ scale: 1 });
+      return Math.max(0.5, Math.min(3, desiredWidth / viewport.width));
+    }
+
+    function renderPage(num) {
+      rendering = true;
+      pdfDoc.getPage(num).then(page => {
+        const chosenScale = fitToWidth ? calcFitScale(page) : scale;
+        const viewport = page.getViewport({ scale: chosenScale });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        const renderTask = page.render({ canvasContext: ctx, viewport });
+        renderTask.promise.then(() => {
+          rendering = false;
+          if (pending !== null) {
+            const n = pending; pending = null; renderPage(n);
+          }
+        });
+        pageNumSpan.textContent = num;
+      });
+    }
+
+    function queueRenderPage(num) {
+      if (rendering) { pending = num; }
+      else { renderPage(num); }
+    }
+
+    function showPage(num) {
+      if (num < 1 || num > pdfDoc.numPages) return;
+      pageNum = num;
+      queueRenderPage(pageNum);
+    }
+
+    // Load the PDF
+    pdfjsLib.getDocument(url).promise.then(pdf => {
+      pdfDoc = pdf;
+      pageCountSpan.textContent = pdf.numPages;
+      showPage(pageNum);
+    });
+
+    // Controls
+    document.getElementById("prev").addEventListener("click", () => showPage(pageNum - 1));
+    document.getElementById("next").addEventListener("click", () => showPage(pageNum + 1));
+    document.getElementById("zoom_in").addEventListener("click", () => { fitToWidth = false; scale = Math.min(3, scale + 0.2); showPage(pageNum); });
+    document.getElementById("zoom_out").addEventListener("click", () => { fitToWidth = false; scale = Math.max(0.5, scale - 0.2); showPage(pageNum); });
+    document.getElementById("fit_width").addEventListener("click", () => { fitToWidth = true; showPage(pageNum); });
+    document.getElementById("fit_actual").addEventListener("click", () => { fitToWidth = false; scale = 1.0; showPage(pageNum); });
+
+    // Re-fit on resize if Fit-to-width is active
+    window.addEventListener("resize", () => { if (fitToWidth && pdfDoc) showPage(pageNum); });
+  </script>
 </body>
 </html>

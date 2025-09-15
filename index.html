@@ -10,21 +10,13 @@
   <!-- Inter for UI, Source Serif Pro for body copy -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
   <style>
-    /* ===== Theme ===== */
     :root{
-      --accent:#99BADD;        /* Carolina Blue */
-      --accent-strong:#7da0c8; /* darker shade */
-      --ink:#1a2433;           /* primary text */
-      --sub:#48576b;           /* secondary text */
-      --paper:#ffffff;         /* card */
-      --bg:#f6f9fc;            /* page background */
-      --line:#e5edf5;          /* borders/dividers */
-      --max:1100px;
-      --radius:18px;
+      --accent:#99BADD; --accent-strong:#7da0c8;
+      --ink:#1a2433; --sub:#48576b;
+      --paper:#ffffff; --bg:#f6f9fc; --line:#e5edf5;
+      --max:1100px; --radius:18px;
     }
-
-    *{box-sizing:border-box}
-    html,body{margin:0}
+    *{box-sizing:border-box} html,body{margin:0}
     body{
       color:var(--ink);
       background:
@@ -33,12 +25,11 @@
         var(--bg);
       line-height:1.65;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-
-    /* Top accent bar */
     .bar{height:8px; width:100%; background:var(--accent);}
+
+    /* Top nav */
     .nav{
       max-width:var(--max); margin:0 auto; padding:10px 20px 0;
       display:flex; gap:16px; font-weight:600;
@@ -48,116 +39,64 @@
 
     .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px}
     .card{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:0 10px 30px rgba(26,36,51,.06);
-      padding:28px;
-      margin-bottom:18px;
+      background:var(--paper); border:1px solid var(--line);
+      border-radius:var(--radius); box-shadow:0 10px 30px rgba(26,36,51,.06);
+      padding:28px; margin-bottom:18px;
     }
 
-    /* ===== About layout ===== */
+    /* About layout */
     .about{
-      display:grid;
-      grid-template-columns: 280px 1fr;
-      gap:32px;
-      align-items:center;
+      display:grid; grid-template-columns: 280px 1fr; gap:32px; align-items:center;
     }
     .photo{
-      display:block;
-      width:100%;
-      max-width:240px;
-      height:auto;
-      border-radius:16px;
-      border:4px solid var(--accent);
-      background:#f0f6fb;
+      display:block; width:100%; max-width:240px; height:auto;
+      border-radius:16px; border:4px solid var(--accent); background:#f0f6fb;
     }
-    h1{
-      font-family:Inter, system-ui, sans-serif;
-      font-weight:800;
-      font-size:38px;
-      line-height:1.1;
-      margin:0 0 6px;
-      letter-spacing:.2px;
-    }
-    .subtitle{
-      color:var(--sub);
-      margin:0 0 16px;
-      font-weight:600;
-    }
-    .lead{
-      font-family:"Source Serif 4", Georgia, serif;
-      font-size:18px;
-      margin:0 0 14px;
-    }
-    h2{
-      font-size:16px;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      color:#25405c;
-      margin:20px 0 8px;
-    }
-    p{margin:0 0 12px; font-family:"Source Serif 4", Georgia, serif;}
+    h1{font-family:Inter, system-ui, sans-serif; font-weight:800; font-size:38px; line-height:1.1; margin:0 0 6px; letter-spacing:.2px}
+    .subtitle{color:var(--sub); margin:0 0 16px; font-weight:600}
+    .lead{font-family:"Source Serif 4", Georgia, serif; font-size:18px; margin:0 0 14px}
+    h2{font-size:16px; letter-spacing:.04em; text-transform:uppercase; color:#25405c; margin:20px 0 8px}
+    p{margin:0 0 12px; font-family:"Source Serif 4", Georgia, serif}
 
-    .links{margin-top:10px}
     .btn{
-      display:inline-block;
-      border:1px solid var(--accent);
-      background:linear-gradient(#fff, #f9fbfe);
-      color:#0f2438;
-      text-decoration:none;
-      font-weight:600;
-      padding:10px 14px;
-      border-radius:10px;
-      margin-top:6px;
+      display:inline-block; border:1px solid var(--accent);
+      background:linear-gradient(#fff,#f9fbfe); color:#0f2438;
+      text-decoration:none; font-weight:600; padding:10px 14px; border-radius:10px; margin-top:6px;
     }
     .btn:hover{border-color:var(--accent-strong)}
     .link{color:#0f4a7a; text-underline-offset:3px}
     .link:hover{color:var(--accent-strong)}
+    .rule{height:2px; width:100%; background:linear-gradient(90deg,transparent,var(--accent),transparent); margin:12px 0 6px; border-radius:2px}
 
-    footer{
-      color:var(--sub);
-      text-align:center;
-      padding:22px 0 30px;
-      font-size:14px;
-    }
-
-    .rule{
-      height:2px; width:100%;
-      background:linear-gradient(90deg, transparent, var(--accent), transparent);
-      margin:12px 0 6px;
-      border-radius:2px;
-    }
-
-    /* ===== Contact list ===== */
+    /* Contact list */
     .contact-list{ list-style:none; padding:0; margin:0 }
     .contact-list li{ margin:6px 0 }
 
-    /* ===== Mobile ===== */
+    footer{color:var(--sub); text-align:center; padding:22px 0 30px; font-size:14px}
+
+    /* Mobile */
     @media (max-width:760px){
       .about{grid-template-columns: 1fr}
       .photo{max-width:200px; margin:0 auto 6px}
       h1{font-size:32px; text-align:center}
       .subtitle, .lead{ text-align:center }
-      .links{ text-align:center }
     }
 
-    /* ===== Print ===== */
+    /* Print */
     @media print{
-      .bar{display:none}
-      body{background:#fff}
-      .card{box-shadow:none}
+      .bar{display:none} body{background:#fff} .card{box-shadow:none}
     }
   </style>
 </head>
 <body>
   <div class="bar" aria-hidden="true"></div>
-  <nav class="nav" aria-label="Primary">
-  <a href="/">About</a>
-  <a href="/publications.html">Publications</a>
-  <a href="/cv.html">CV</a>
-</nav>
 
+  <!-- Top nav -->
+  <nav class="nav" aria-label="Primary">
+    <a href="/" aria-current="page">About</a>
+    <a href="/publications.html">Publications</a>
+    <a href="/cv.html">CV</a>
+  </nav>
 
   <main class="wrap">
     <!-- ABOUT CARD -->
@@ -173,21 +112,23 @@
           access to evidence-based care for underserved populations.
         </p>
 
-        <!-- CV BUTTON moved here -->
+        <!-- CV button (opens the dedicated CV page) -->
         <a class="btn" href="/cv.html" target="_blank" rel="noopener">Curriculum Vitae</a>
       </div>
     </section>
 
-    <!-- CONTACTS CARD (separate) -->
+    <!-- CONTACTS CARD -->
     <section class="card" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
       <ul class="contact-list">
         <li>LinkedIn: <a class="link" href="https://www.linkedin.com/in/wy075/" target="_blank" rel="noopener">linkedin.com/in/wy075</a></li>
         <li>
-  Email: <span id="email-text">wenfei.030@gmail.com</span>
-  <button class="btn" id="copy-email" type="button" style="margin-left:8px">Copy</button>
-</li>
-
+          Email: <span id="email-text">wenfei.030@gmail.com</span>
+          <button class="btn" id="copy-email" type="button" style="margin-left:8px">Copy</button>
+          <!-- If you also want a link that opens Gmail compose in a new tab, add:
+          <div><a class="link" href="https://mail.google.com/mail/?view=cm&fs=1&to=wenfei.030@gmail.com" target="_blank" rel="noopener">Compose in Gmail</a></div>
+          -->
+        </li>
       </ul>
     </section>
 
@@ -196,30 +137,28 @@
     </footer>
   </main>
 
+  <!-- Small helpers: auto-year, last-updated, copy email -->
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
     document.getElementById("d").textContent = new Date().toLocaleDateString();
-  </script>
-  <script>
-  (function () {
-    const btn = document.getElementById("copy-email");
-    if (!btn) return;
-    btn.addEventListener("click", async () => {
-      const email = document.getElementById("email-text").textContent.trim();
-      try {
-        await navigator.clipboard.writeText(email);
-        btn.textContent = "Copied!";
-        setTimeout(() => (btn.textContent = "Copy"), 1200);
-      } catch {
-        // Fallback: select text if clipboard API is blocked
-        const range = document.createRange();
-        range.selectNode(document.getElementById("email-text"));
-        const sel = window.getSelection();
-        sel.removeAllRanges(); sel.addRange(range);
-      }
-    });
-  })();
-</script>
 
+    (function () {
+      const btn = document.getElementById("copy-email");
+      if (!btn) return;
+      btn.addEventListener("click", async () => {
+        const email = document.getElementById("email-text").textContent.trim();
+        try {
+          await navigator.clipboard.writeText(email);
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = "Copy"), 1200);
+        } catch {
+          const range = document.createRange();
+          range.selectNode(document.getElementById("email-text"));
+          const sel = window.getSelection();
+          sel.removeAllRanges(); sel.addRange(range);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

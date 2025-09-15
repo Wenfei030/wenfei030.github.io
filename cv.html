@@ -29,8 +29,15 @@
       max-width:var(--max); margin:0 auto; padding:10px 20px 0;
       display:flex; gap:16px; font-weight:600;
     }
-    .nav a{ color:#0f4a7a; text-decoration:none; padding:6px 8px; border-radius:8px }
+    .nav a{
+      color:#0f4a7a; text-decoration:none; padding:6px 10px; border-radius:8px
+    }
     .nav a:hover{ background:rgba(153,186,221,.18) }
+    .nav a[aria-current="page"]{
+      background:rgba(153,186,221,.28);
+      outline:2px solid var(--accent);
+      outline-offset:-2px;
+    }
 
     .wrap{max-width:var(--max); margin:0 auto; padding:24px 20px 28px}
     h1{font-size:28px; margin:8px 0 14px; font-weight:800; letter-spacing:.2px}
@@ -56,22 +63,7 @@
 <body>
   <div class="bar" aria-hidden="true"></div>
 
-  <!-- Top nav (matches other pages) -->
+  <!-- Top nav -->
   <nav class="nav" aria-label="Primary">
     <a href="/">About</a>
-    <a href="/publications.html">Publications</a>
-    <a href="/cv.html" aria-current="page">CV</a>
-  </nav>
-
-  <main class="wrap">
-    <div class="top">
-      <h1>Curriculum Vitae — Wenfei Yu</h1>
-      <a class="btn" href="/assets/YuWenfei_CV.pdf" download>Download PDF</a>
-    </div>
-
-    <div class="card iframe-wrap" role="region" aria-label="CV viewer">
-      <iframe src="/assets/YuWenfei_CV.pdf#view=FitH" title="Wenfei Yu CV PDF"></iframe>
-    </div>
-  </main>
-</body>
-</html>
+    <a href="/publications.html">

@@ -10,15 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#99BADD;        /* Carolina Blue */
-      --accent-strong:#7da0c8;
-      --ink:#1a2433;
-      --sub:#48576b;
-      --paper:#ffffff;
-      --bg:#f6f9fc;
-      --line:#e5edf5;
-      --max:1100px;
-      --radius:18px;
+      --accent:#99BADD; --accent-strong:#7da0c8;
+      --ink:#1a2433; --sub:#48576b;
+      --paper:#ffffff; --bg:#f6f9fc; --line:#e5edf5;
+      --max:1100px; --radius:18px;
     }
     *{box-sizing:border-box} html,body{margin:0}
     body{
@@ -32,24 +27,30 @@
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     .bar{height:8px; width:100%; background:var(--accent);}
+
+    /* Top nav (matches About) */
     .nav{
       max-width:var(--max); margin:0 auto; padding:10px 20px 0;
       display:flex; gap:16px; font-weight:600;
     }
     .nav a{ color:#0f4a7a; text-decoration:none; padding:6px 8px; border-radius:8px }
     .nav a:hover{ background:rgba(153,186,221,.18) }
+
     .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px}
     .card{
       background:var(--paper); border:1px solid var(--line);
       border-radius:var(--radius); box-shadow:0 10px 30px rgba(26,36,51,.06);
       padding:28px; margin-bottom:18px;
     }
+
     h1{font-weight:800; font-size:34px; margin:0 0 6px; letter-spacing:.2px}
     .sub{color:var(--sub); margin:0 0 16px; font-weight:600}
+
     h2{font-size:18px; letter-spacing:.02em; margin:8px 0 12px; color:#25405c}
     ol{margin:0 0 6px 22px; padding:0}
     li{margin:0 0 14px; font-family:"Source Serif 4", Georgia, serif}
-    .me{ text-decoration:underline }
+
+    .me{ text-decoration:underline }          /* underline your name */
     .meta{ color:var(--sub) }
     .links{ margin-top:6px }
     .a{ color:#0f4a7a; text-underline-offset:3px; text-decoration:underline }
@@ -58,22 +59,27 @@
       display:inline-block; padding:6px 10px; border-radius:999px;
       border:1px solid var(--line); background:#f8fbff; margin-left:8px; font-size:12px; color:#274564
     }
+
     footer{color:var(--sub); text-align:center; padding:22px 0 30px; font-size:14px}
+
     @media print{ .bar{display:none} body{background:#fff} .card{box-shadow:none} }
   </style>
 </head>
 <body>
   <div class="bar" aria-hidden="true"></div>
+
+  <!-- Top nav -->
   <nav class="nav" aria-label="Primary">
-  <a href="/">About</a>
-  <a href="/publications.html">Publications</a>
-  <a href="/cv.html">CV</a>
-</nav>
+    <a href="/">About</a>
+    <a href="/publications.html" aria-current="page">Publications</a>
+    <a href="/cv.html">CV</a>
+  </nav>
 
   <main class="wrap">
     <section class="card">
       <h1>Publications</h1>
-      <p class="sub">Published articles, manuscripts in progress, and conference presentations</p>
+      <p class="sub">Published articles, manuscripts in progress, and conference dissemination</p>
+      <p class="meta">Your name appears as <span class="me">Yu, W.</span> and is underlined in author lists.</p>
     </section>
 
     <!-- Published Articles -->
@@ -81,10 +87,12 @@
       <h2>Published Articles</h2>
       <ol>
         <li>
-          Badola, A. &amp; <span class="me">Yu, W.</span>(2025).
+          Badola, A., <span class="me">Yu, W.</span>, &amp; King, A. (2025).
           Mindfulness-based interventions for psychological trauma and posttraumatic stress disorder (PTSD).
           <em>Current Treatment Options in Psychiatry, 12</em>, 29.
-          <a class="a" href="https://doi.org/10.1007/s40501-025-00364-x" target="_blank" rel="noopener">https://doi.org/10.1007/s40501-025-00364-x</a>
+          <span class="links">
+            <a class="a" href="https://doi.org/10.1007/s40501-025-00364-x" target="_blank" rel="noopener">DOI</a>
+          </span>
         </li>
         <li>
           <span class="me">Yu, W.</span>, et al. (2024).
@@ -100,16 +108,16 @@
       <h2>Manuscripts Under Review &amp; In Preparation</h2>
       <ol>
         <li>
-          <span class="me">Yu, W.</span>, et&nbsp;al. (in preparation).
-  Childhood maltreatment and treatment effectiveness.
-  <span class="pill">In Preparation</span>
+          Gottfredson O’Shea, N., Hurley, L., Gurumurthy, N., Pei, Y., Kazemi, M.,
+          <span class="me">Yu, W.</span>, Dhillon, A. S., Choi, S. M., &amp; Nezami, B. T. (in preparation).
+          Behavior change techniques used in just-in-time adaptive interventions for smoking cessation:
+          A systematic review and meta-analysis.
+          <span class="pill">In Preparation</span>
         </li>
         <li>
-          Gottfredson O’Shea, N., Hurley, L., Gurumurthy, N., Pei, Y., Kazemi, M., 
-  <span class="me">Yu, W.</span>, Dhillon, A. S., Choi, S. M., &amp; Nezami, B. T. (in review).
-  Behavior change techniques used in just-in-time adaptive interventions for smoking cessation:
-  A systematic review and meta-analysis.
-          <span class="pill">In Review</span>
+          <span class="me">Yu, W.</span>, et&nbsp;al. (in preparation).
+          Childhood maltreatment and treatment effectiveness: Evidence from clinical cohorts.
+          <span class="pill">In Preparation</span>
         </li>
       </ol>
     </section>
@@ -119,33 +127,34 @@
       <h2>Conference Presentations &amp; Scientific Posters</h2>
       <ol>
         <li>
-          <span class="me">Yu, W.</span>, Badola, A., Lazarus, S., Duchemin, A-M., Virk, S., King, A. (2025, May).
+          <span class="me">Yu, W.</span>, Badola, A., Lazarus, S., Duchemin, A.-M., Virk, S., &amp; King, A. (2025, May).
           Extending therapeutic effect of ketamine for treatment-resistant depression using mindfulness-based treatment.
           Presented at <em>EPICENTER Research Day</em>, Columbus, OH.
           <span class="pill">Poster</span>
         </li>
         <li>
-          Badola, A., <span class="me">Yu, W.</span>, King, A. (2025, May).
+          Badola, A., <span class="me">Yu, W.</span>, &amp; King, A. (2025, May).
           Mindfulness-based intervention effects on DMN cross-network resting FC associated with symptom improvement.
           Presented at <em>EPICENTER Research Day</em>, Columbus, OH.
           <span class="pill">Poster</span>
         </li>
         <li>
-          <span class="me">Yu, W.</span>, Badola, A., Lazarus, S., Duchemin, A-M., Virk, S., King, A. (2025, April).
+          <span class="me">Yu, W.</span>, Badola, A., Lazarus, S., Duchemin, A.-M., Virk, S., &amp; King, A. (2025, April).
           Pilot study: Ketamine-assisted mindfulness-based cognitive therapy for treatment-resistant depression.
-          Presented at <em>Anxiety &amp; Depression Association of America (ADAA)</em>, Las Vegas, NV and <em>Society of Biological Psychiatry (SOBP)</em>, Toronto, Canada.
+          Presented at <em>Anxiety &amp; Depression Association of America (ADAA)</em>, Las Vegas, NV, and
+          <em>Society of Biological Psychiatry (SOBP)</em>, Toronto, Canada.
           <span class="pill">Poster</span>
         </li>
         <li>
-          Badola, A., Jagan, J., Madhavan, S., <span class="me">Yu, W.</span>, King, A. P. (2025, April).
+          Badola, A., Jagan, J., Madhavan, S., <span class="me">Yu, W.</span>, &amp; King, A. P. (2025, April).
           Aberrant functional connectivity (rsFC) between subgenual ACC and default mode network in adults with history of childhood maltreatment.
-          Presented at <em>ADAA</em>, Las Vegas, NV and <em>SOBP</em>, Toronto, Canada.
+          Presented at <em>ADAA</em>, Las Vegas, NV, and <em>SOBP</em>, Toronto, Canada.
           <span class="pill">Poster</span>
         </li>
         <li>
-          Shi, S., <span class="me">Yu, W.</span>, Wu, G. (2024, April).
+          Shi, S., <span class="me">Yu, W.</span>, &amp; Wu, G. (2024, April).
           Neuroimaging preprocessing, denoising, and quality control.
-          Presented at <em>Celebration of Undergraduate Research</em>, UNC Chapel Hill, NC.
+          Presented at the <em>Celebration of Undergraduate Research</em>, UNC Chapel Hill, NC.
           <span class="pill">Poster</span>
         </li>
       </ol>

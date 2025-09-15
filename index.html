@@ -181,7 +181,11 @@
       <h2 id="contact-title">Contact</h2>
       <ul class="contact-list">
         <li>LinkedIn: <a class="link" href="https://www.linkedin.com/in/wy075/" target="_blank" rel="noopener">linkedin.com/in/wy075</a></li>
-        <li>Email: <a class="link" href="mailto:wenfei.030@gmail.com">wenfei.030@gmail.com</a></li>
+        <li>
+  Email: <span id="email-text">wenfei.030@gmail.com</span>
+  <button class="btn" id="copy-email" type="button" style="margin-left:8px">Copy</button>
+</li>
+
       </ul>
     </section>
 
@@ -194,5 +198,26 @@
     document.getElementById("y").textContent = new Date().getFullYear();
     document.getElementById("d").textContent = new Date().toLocaleDateString();
   </script>
+  <script>
+  (function () {
+    const btn = document.getElementById("copy-email");
+    if (!btn) return;
+    btn.addEventListener("click", async () => {
+      const email = document.getElementById("email-text").textContent.trim();
+      try {
+        await navigator.clipboard.writeText(email);
+        btn.textContent = "Copied!";
+        setTimeout(() => (btn.textContent = "Copy"), 1200);
+      } catch {
+        // Fallback: select text if clipboard API is blocked
+        const range = document.createRange();
+        range.selectNode(document.getElementById("email-text"));
+        const sel = window.getSelection();
+        sel.removeAllRanges(); sel.addRange(range);
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>

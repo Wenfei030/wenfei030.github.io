@@ -67,6 +67,10 @@
       display:inline-block; padding:6px 10px; border-radius:999px;
       border:1px solid var(--line); background:#f8fbff; margin-left:8px; font-size:12px; color:#274564
     }
+    .doi{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:14px }
+    .doi a{ color:#0f4a7a; text-decoration:underline; text-underline-offset:2px }
+    .doi a:hover{ color:#0b263f }
+
 
     footer{color:var(--sub); text-align:center; padding:22px 0 30px; font-size:14px}
 
@@ -87,29 +91,34 @@
     <section class="card">
       <h1>Publications</h1>
       <p class="sub">Published articles, manuscripts in progress, and conference dissemination</p>
-      <p class="meta">Your name appears as <span class="me">Yu, W.</span> and is underlined in author lists.</p>
     </section>
 
-    <!-- Published Articles -->
-    <section class="card">
-      <h2>Published Articles</h2>
-      <ol>
-        <li>
-          Badola, A., <span class="me">Yu, W.</span>, &amp; King, A. (2025).
-          Mindfulness-based interventions for psychological trauma and posttraumatic stress disorder (PTSD).
-          <em>Current Treatment Options in Psychiatry, 12</em>, 29.
-          <span class="links">
-            <a class="a" href="https://doi.org/10.1007/s40501-025-00364-x" target="_blank" rel="noopener">DOI</a>
-          </span>
-        </li>
-        <li>
-          <span class="me">Yu, W.</span>, et al. (2024).
-          Ketamine-assisted mindfulness-based cognitive therapy for treatment-resistant depression.
-          <em>Biological Psychiatry, 97</em>(9), S168–S169.
-          <span class="pill">Conference Abstract</span>
-        </li>
-      </ol>
-    </section>
+    <!-- PUBLICATIONS -->
+<section aria-labelledby="pubs">
+  <h2 id="pubs">Publications</h2>
+  <ul>
+    <li>
+      Badola, A., <u>Yu, W.</u> (2025). Mindfulness-Based Interventions for Psychological Trauma and Posttraumatic Stress Disorder (PTSD).
+      <em>Current Treatment Options in Psychiatry, 12</em>, 29.
+      <span class="doi">DOI: <a href="https://doi.org/10.1007/s40501-025-00364-x" target="_blank" rel="noopener">10.1007/s40501-025-00364-x</a></span>
+    </li>
+    <li>
+      <u>Yu, W.</u>, et al. (2025). 179. Ketamine-assisted mindfulness-based cognitive therapy for treatment-resistant depression [Abstract].
+      <em>Biological Psychiatry, 97</em>(9S), S168–S169.
+      <span class="doi">DOI: <a href="https://doi.org/10.1016/j.biopsych.2025.02.416" target="_blank" rel="noopener">10.1016/j.biopsych.2025.02.416</a></span>
+    </li>
+    <li>
+      <span class="title">Behavior Change Techniques used in Just-In-Time Adaptive Interventions for Smoking Cessation: A Systematic Review and Meta-Analysis.</span>
+      Gottfredson O’Shea, N., Hurley, L., Gurumurthy, N., Pei, Y., Kazemi, M., <u>Yu, W.</u>, Dhillon, A. S., Choi, S. M., &amp; Nezami, B. T.
+      <span class="pill">In Review</span>
+    </li>
+    <li>
+      <span class="title">Effect of Childhood Maltreatment in Treatment Effectiveness.</span> <u>Yu, W.</u>, et al.
+      <span class="pill">In Preparation</span>
+    </li>
+  </ul>
+</section>
+
 
     <!-- Manuscripts Under Review & In Preparation -->
     <section class="card">
@@ -120,7 +129,7 @@
           <span class="me">Yu, W.</span>, Dhillon, A. S., Choi, S. M., &amp; Nezami, B. T. (in preparation).
           Behavior change techniques used in just-in-time adaptive interventions for smoking cessation:
           A systematic review and meta-analysis.
-          <span class="pill">In Preparation</span>
+          <span class="pill">In Review</span>
         </li>
         <li>
           <span class="me">Yu, W.</span>, et&nbsp;al. (in preparation).

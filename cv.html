@@ -37,11 +37,23 @@
     }
 
     main{max-width:var(--max); margin:0 auto; padding:28px 20px 36px}
-    header{margin-bottom:8px}
+    header{margin-bottom:10px}
     h1{font-size:30px; margin:6px 0 6px; font-weight:800}
-    .meta{color:var(--sub); margin:0 0 18px}
+    .meta{color:var(--sub); margin:0 0 16px}
     .meta a{color:#0f4a7a; text-decoration:none}
     .meta a:hover{ text-decoration:underline }
+
+    /* top buttons */
+    .format-options{
+      display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+      background:var(--paper); border:1px solid var(--line); border-radius:12px;
+      padding:10px 12px; margin:12px 0 16px;
+    }
+    .btn{
+      display:inline-block; padding:8px 12px; border-radius:10px; font-weight:600; text-decoration:none;
+      color:#0f2438; border:1px solid var(--accent); background:linear-gradient(#fff,#f9fbfe);
+    }
+    .btn:hover{border-color:var(--accent-strong)}
 
     section{
       background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
@@ -65,6 +77,12 @@
       background:#f8fbff; font-size:12px; color:#274564; margin-left:8px
     }
     .small{font-size:14px; color:#4b5d72}
+
+    /* DOI styling (if present) */
+    .doi{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:14px }
+    .doi a{ color:#0f4a7a; text-decoration:underline; text-underline-offset:2px }
+    .doi a:hover{ color:#0b263f }
+    .me{ text-decoration:underline }
   </style>
 </head>
 <body>
@@ -74,18 +92,26 @@
   <nav class="nav" aria-label="Primary">
     <a href="/">About</a>
     <a href="/publications.html">Publications</a>
-    <a href="/cv.html" aria-current="page">CV</a>
+    <a href="/cv-plain.html" aria-current="page">CV</a>
   </nav>
 
   <main>
     <header>
       <h1>Wenfei Yu</h1>
       <p class="meta">
+        <span class="loc">Columbus, OH</span> ·
         <a href="mailto:wenfei.030@gmail.com">wenfei.030@gmail.com</a> ·
         <a href="tel:+12072748302">+1 (207) 274-8302</a> ·
         <a href="https://www.linkedin.com/in/wy075/" target="_blank" rel="noopener">linkedin.com/in/wy075</a> ·
         <a href="https://wenfei030.github.io/">wenfei030.github.io</a>
       </p>
+
+      <!-- Buttons to PDF preview/download -->
+      <div class="format-options" role="navigation" aria-label="CV format options">
+        <a class="btn" href="/cv.html">Preview PDF (page-by-page)</a>
+        <a class="btn" href="/assets/YuWenfei_CV.pdf" target="_blank" rel="noopener">Open PDF</a>
+        <a class="btn" href="/assets/YuWenfei_CV.pdf" download>Download PDF</a>
+      </div>
     </header>
 
     <!-- EDUCATION -->

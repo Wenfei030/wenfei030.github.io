@@ -18,7 +18,13 @@
     *{box-sizing:border-box} html,body{margin:0}
 
     /* highlight your name */
-    .me{ font-weight:700; }
+    .me{
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: from-font;  /* nice, balanced thickness */
+  text-underline-offset: 2px;            /* a little breathing room */
+  text-decoration-color: currentColor;   /* matches text color */
+}
 
     body{
       color:var(--ink);

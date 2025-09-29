@@ -16,7 +16,10 @@
       --max:1100px; --radius:18px;
     }
     *{box-sizing:border-box} html,body{margin:0}
-    .me { font-weight: 700; }
+
+    /* highlight your name */
+    .me{ font-weight:700; }
+
     body{
       color:var(--ink);
       background:
@@ -28,15 +31,6 @@
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     .bar{height:8px; width:100%; background:var(--accent);}
-    .poster { margin-top:10px }
-.poster .poster-frame{
-  width:100%; height:260px; border:1px solid var(--line);
-  border-radius:12px; background:#fff;
-  box-shadow:0 6px 18px rgba(26,36,51,.08);
-}
-.poster .caption{ margin-top:6px; font-size:14px }
-.poster .caption a{ color:#0f4a7a; text-decoration:underline; text-underline-offset:2px }
-@media (max-width:700px){ .poster .poster-frame{ height:210px } }
 
     /* Top nav */
     .nav{
@@ -65,14 +59,14 @@
     .sub{color:var(--sub); margin:0 0 16px; font-weight:600}
 
     h2{font-size:18px; letter-spacing:.02em; margin:8px 0 12px; color:#25405c}
+    .subhead{ margin:6px 0 8px; font-size:15px; color:#274564 }
+
     ol{margin:0 0 6px 22px; padding:0}
     li{margin:0 0 14px; font-family:"Source Serif 4", Georgia, serif}
 
-    .me{ text-decoration:underline }          /* underline your name */
     .meta{ color:var(--sub) }
-    .links{ margin-top:6px }
     .a{ color:#0f4a7a; text-underline-offset:3px; text-decoration:underline }
-    .a:hover{ color:var(--accent-strong) }
+    .a:hover{ color:#0f365a }
     .pill{
       display:inline-block; padding:6px 10px; border-radius:999px;
       border:1px solid var(--line); background:#f8fbff; margin-left:8px; font-size:12px; color:#274564
@@ -81,6 +75,19 @@
     .doi a{ color:#0f4a7a; text-decoration:underline; text-underline-offset:2px }
     .doi a:hover{ color:#0b263f }
 
+    /* Poster thumbnails */
+    .poster-grid{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      margin-top:10px
+    }
+    .poster{
+      background:#fff; border:1px solid var(--line); border-radius:12px;
+      box-shadow:0 6px 18px rgba(26,36,51,.08); padding:10px
+    }
+    .poster canvas{ width:100%; height:auto; display:block; border-radius:8px }
+    .poster .caption{ margin-top:6px; font-size:14px }
+    .poster .caption a{ color:#0f4a7a; text-decoration:underline; text-underline-offset:2px }
 
     footer{color:var(--sub); text-align:center; padding:22px 0 30px; font-size:14px}
 
@@ -103,133 +110,172 @@
       <p class="sub">Published articles, manuscripts in progress, and conference dissemination</p>
     </section>
 
-<!-- PUBLICATIONS -->
-<section class="card">
-  <h2 id="pubs">Publications</h2>
-  <ol>
-    <li>
-      Badola, A., <span class="me">Yu, W.</span> &amp; King, A. (2025).
-      Mindfulness-Based Interventions for Psychological Trauma and Posttraumatic Stress Disorder (PTSD).
-      <em>Current Treatment Options in Psychiatry, 12</em>, 29.
-      <a href="https://doi.org/10.1007/s40501-025-00364-x" target="_blank" rel="noopener">https://doi.org/10.1007/s40501-025-00364-x</a>
-    </li>
-    <li>
-      <span class="me">Yu, W.</span>, et al. (2025). 179. Ketamine-assisted mindfulness-based cognitive therapy for treatment-resistant depression [Abstract].
-      <em>Biological Psychiatry, 97</em>(9S), S168–S169.
-      <a href="https://doi.org/10.1016/j.biopsych.2025.02.416" target="_blank" rel="noopener">https://doi.org/10.1016/j.biopsych.2025.02.416</a>
-    </li>
-  </ol>
-</section>
+    <!-- Published Articles -->
+    <section class="card">
+      <h2 id="pubs">Publications</h2>
+      <ol>
+        <li>
+          Badola, A., <span class="me">Yu, W.</span> &amp; King, A. (2025).
+          Mindfulness-Based Interventions for Psychological Trauma and Posttraumatic Stress Disorder (PTSD).
+          <em>Current Treatment Options in Psychiatry, 12</em>, 29.
+          <span class="doi">DOI: <a href="https://doi.org/10.1007/s40501-025-00364-x" target="_blank" rel="noopener">10.1007/s40501-025-00364-x</a></span>
+        </li>
+        <li>
+          <span class="me">Yu, W.</span>, et al. (2025).
+          179. Ketamine-assisted mindfulness-based cognitive therapy for treatment-resistant depression [Abstract].
+          <em>Biological Psychiatry, 97</em>(9S), S168–S169.
+          <span class="doi">DOI: <a href="https://doi.org/10.1016/j.biopsych.2025.02.416" target="_blank" rel="noopener">10.1016/j.biopsych.2025.02.416</a></span>
+        </li>
+      </ol>
+    </section>
 
-<!-- Manuscripts Under Review & In Preparation -->
-<section class="card">
-  <h2>Manuscripts Under Review &amp; In Preparation</h2>
-  <ol>
-    <li>
-      Gottfredson O’Shea, N., Hurley, L., Gurumurthy, N., Pei, Y., Kazemi, M.,
-      <span class="me">Yu, W.</span>, Dhillon, A. S., Choi, S. M., &amp; Nezami, B. T.
-      Behavior change techniques used in just-in-time adaptive interventions for smoking cessation:
-      A systematic review and meta-analysis.
-      <span class="pill">In Review</span>
-    </li>
-    <li>
-      <span class="me">Yu, W.</span>, et&nbsp;al.
-      Effect of Childhood Maltreatment in Treatment Effectiveness.
-      <span class="pill">In Preparation</span>
-    </li>
-  </ol>
-</section>
+    <!-- Manuscripts Under Review & In Preparation -->
+    <section class="card">
+      <h2>Manuscripts Under Review &amp; In Preparation</h2>
+      <ol>
+        <li>
+          Gottfredson O’Shea, N., Hurley, L., Gurumurthy, N., Pei, Y., Kazemi, M.,
+          <span class="me">Yu, W.</span>, Dhillon, A. S., Choi, S. M., &amp; Nezami, B. T. (in review).
+          Behavior change techniques used in just-in-time adaptive interventions for smoking cessation:
+          A systematic review and meta-analysis.
+          <em>Manuscript under review.</em>
+          <span class="pill">In Review</span>
+        </li>
+        <li>
+          <span class="me">Yu, W.</span>, et&nbsp;al. (in preparation).
+          Childhood maltreatment and treatment effectiveness: Evidence from clinical cohorts.
+          <em>Manuscript in preparation.</em>
+          <span class="pill">In Preparation</span>
+        </li>
+      </ol>
+    </section>
 
-<!-- Conference Presentations & Scientific Posters -->
-<section class="card">
-  <h2>Conference Presentations &amp; Scientific Posters</h2>
-  <ol>
-    <li>
-    <span class="me">Yu, W.</span>, Byrd, K. J., Badola, A., Bozzay, M., Virk, S., Duchemin, A.-M., King, A. (Oct 2025).
-    EMA and EEG markers of response to ketamine + MBCT in treatment-resistant depression.
-    <span class="pill">In Prep.</span>
-  </li>
+    <!-- Conference Presentations & Scientific Posters -->
+    <section class="card">
+      <h2>Conference Presentations &amp; Scientific Posters</h2>
 
-  <li>
-    Badola, A., <span class="me">Yu, W.</span>, Lazarus, S., Duchemin, A.-M., Virk, S., Esis, V., King, A. (Oct 2025).
-    Rapid and longitudinally sustained antidepressant effects of ketamine-assisted MBCT for treatment-resistant depression.
-    <span class="pill">In Prep.</span>
-  </li>
+      <h3 class="subhead">Presented</h3>
+      <ol>
+        <li>
+          <span class="me">Yu, W.</span>, Byrd, K. J., Badola, A., Bozzay, M., Virk, S., Duchemin, A.-M., King, A. (Oct 2025).
+          EMA and EEG markers of response to ketamine + MBCT in treatment-resistant depression.
+          <span class="pill">In Prep.</span>
+        </li>
+        
+         <!-- Yu first author, ADAA & SOBP (WY_SOBP_2025_Poster.pdf) -->
+        <li>
+          <span class="me">Yu, W.</span>, Badola, A., Lazarus, S., Duchemin, A.-M., Virk, S., King, A. (2025, April).
+          Pilot study: Ketamine-assisted mindfulness-based cognitive therapy for treatment-resistant depression.
+          Presented at <em>Anxiety &amp; Depression Association of America (ADAA)</em>, Las Vegas, NV, and
+          <em>Society of Biological Psychiatry (SOBP)</em>, Toronto, Canada.
+          <span class="pill">Poster</span>
 
-  <li>
-    Thotapalli, S., <span class="me">Yu, W.</span>, Badola, A., Jiang, M., King, A. (Oct 2025).
-    Postural heart rate variability and PTSD symptom change in a pilot study of mindfulness-based cognitive therapy.
-    <span class="pill">In Prep.</span>
-  </li>
-    <li>
-    Badola, A., <span class="me">Yu, W.</span>, King, A. (2025, May).
-    Mindfulness-based intervention effects on DMN cross-network resting FC associated with symptom improvement.
-    Presented at <em>EPICENTER Research Day</em>, Columbus, OH.
-    <span class="pill">Poster</span>
+          <div class="poster-grid">
+            <figure class="poster">
+              <a href="/assets/WY_SOBP_2025_Poster.pdf" target="_blank" rel="noopener" aria-label="Open SOBP 2025 poster PDF (Yu first author)">
+                <canvas id="thumb-wy-sobp"></canvas>
+              </a>
+              <figcaption class="caption">
+                <a href="/assets/WY_SOBP_2025_Poster.pdf" target="_blank" rel="noopener">Open full poster (PDF)</a>
+              </figcaption>
+            </figure>
+          </div>
+        </li>
+        
+        <!-- EPICENTER (AB_EPICENTER_2025_Poster.pdf) -->
+        <li>
+          Badola, A., <span class="me">Yu, W.</span>, King, A. (2025, May).
+          Mindfulness-based intervention effects on DMN cross-network resting FC associated with symptom improvement.
+          Presented at <em>EPICENTER Research Day</em>, Columbus, OH.
+          <span class="pill">Poster</span>
 
-    <figure class="poster">
-      <iframe
-        class="poster-frame"
-        src="/assets/AB_EPICENTER_2025_Poster.pdf#view=FitH"
-        title="EPICENTER 2025 Poster preview (first page)">
-      </iframe>
-      <figcaption class="caption">
-        <a href="/assets/AB_EPICENTER_2025_Poster.pdf" target="_blank" rel="noopener">Open full poster (PDF)</a>
-      </figcaption>
-    </figure>
-  </li>
-    <li>
-    <span class="me">Yu, W.</span>, Badola, A., Lazarus, S., Duchemin, A.-M., Virk, S., King, A. (2025, April).
-    Pilot study: Ketamine-assisted mindfulness-based cognitive therapy for treatment-resistant depression.
-    Presented at <em>Anxiety &amp; Depression Association of America (ADAA)</em>, Las Vegas, NV, and
-    <em>Society of Biological Psychiatry (SOBP)</em>, Toronto, Canada.
-    <span class="pill">Poster</span>
+          <div class="poster-grid">
+            <figure class="poster">
+              <a href="/assets/AB_EPICENTER_2025_Poster.pdf" target="_blank" rel="noopener" aria-label="Open EPICENTER 2025 poster PDF">
+                <canvas id="thumb-epicenter"></canvas>
+              </a>
+              <figcaption class="caption">
+                <a href="/assets/AB_EPICENTER_2025_Poster.pdf" target="_blank" rel="noopener">Open full poster (PDF)</a>
+              </figcaption>
+            </figure>
+          </div>
+        </li>
 
-    <figure class="poster">
-      <iframe
-        class="poster-frame"
-        src="/assets/WY_SOBP_2025_Poster.pdf#view=FitH"
-        title="SOBP 2025 Poster preview (first page)">
-      </iframe>
-      <figcaption class="caption">
-        <a href="/assets/WY_SOBP_2025_Poster.pdf" target="_blank" rel="noopener">Open full poster (PDF)</a>
-      </figcaption>
-    </figure>
-  </li>
-    <li>
-    Badola, A., Jagan, J., Madhavan, S., <span class="me">Yu, W.</span>, King, A. P. (2025, April).
-    Aberrant functional connectivity (rsFC) between subgenual ACC and default mode network in adults with history of childhood maltreatment.
-    Presented at <em>ADAA</em>, Las Vegas, NV, and <em>SOBP</em>, Toronto, Canada.
-    <span class="pill">Poster</span>
+        <!-- Badola first author, ADAA & SOBP (AB_SOBP_2025_Poster.pdf) -->
+        <li>
+          Badola, A., Jagan, J., Madhavan, S., <span class="me">Yu, W.</span>, King, A. P. (2025, April).
+          Aberrant functional connectivity (rsFC) between subgenual ACC and default mode network in adults with history of childhood maltreatment.
+          Presented at <em>ADAA</em>, Las Vegas, NV, and <em>SOBP</em>, Toronto, Canada.
+          <span class="pill">Poster</span>
 
-    <figure class="poster">
-      <iframe
-        class="poster-frame"
-        src="/assets/AB_SOBP_2025_Poster.pdf#view=FitH"
-        title="SOBP 2025 Poster (Badola et al.) preview (first page)">
-      </iframe>
-      <figcaption class="caption">
-        <a href="/assets/AB_SOBP_2025_Poster.pdf" target="_blank" rel="noopener">Open full poster (PDF)</a>
-      </figcaption>
-    </figure>
-  </li>
-    <li>
-      Shi, S., <span class="me">Yu, W.</span>, Wu, G. (2024, April).
-      Neuroimaging preprocessing, denoising, and quality control.
-      Presented at the <em>Celebration of Undergraduate Research</em>, UNC Chapel Hill, NC.
-      <span class="pill">Poster</span>
-    </li>
-  </ol>
-</section>
+          <div class="poster-grid">
+            <figure class="poster">
+              <a href="/assets/AB_SOBP_2025_Poster.pdf" target="_blank" rel="noopener" aria-label="Open SOBP 2025 poster PDF (Badola et al.)">
+                <canvas id="thumb-ab-sobp"></canvas>
+              </a>
+              <figcaption class="caption">
+                <a href="/assets/AB_SOBP_2025_Poster.pdf" target="_blank" rel="noopener">Open full poster (PDF)</a>
+              </figcaption>
+            </figure>
+          </div>
+        </li>
+        
+        <li>
+          Badola, A., <span class="me">Yu, W.</span>, Lazarus, S., Duchemin, A.-M., Virk, S., Esis, V., King, A. (Oct 2025).
+          Rapid and longitudinally sustained antidepressant effects of ketamine-assisted MBCT for treatment-resistant depression.
+          <span class="pill">In Prep.</span>
+        </li>
+        <li>
+          Thotapalli, S., <span class="me">Yu, W.</span>, Badola, A., Jiang, M., King, A. (Oct 2025).
+          Postural heart rate variability and PTSD symptom change in a pilot study of mindfulness-based cognitive therapy.
+          <span class="pill">In Prep.</span>
+        </li>
+        <li>
+          Shi, S., <span class="me">Yu, W.</span>, Wu, G. (2024, April).
+          Neuroimaging preprocessing, denoising, and quality control.
+          Presented at the <em>Celebration of Undergraduate Research</em>, UNC Chapel Hill, NC.
+          <span class="pill">Poster</span>
+        </li>
+      </ol>
+    </section>
 
     <footer>
       © <span id="y"></span> Wenfei Yu
     </footer>
   </main>
 
+  <!-- PDF.js for thumbnail rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script>
-    // Year in footer
+    // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Configure worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+
+    // Render a first-page thumbnail to a canvas
+    async function renderThumb(canvasId, pdfUrl, maxWidth = 480) {
+      try {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+        const page = await pdf.getPage(1);
+        const viewport = page.getViewport({ scale: 1 });
+        const scale = Math.min(maxWidth / viewport.width, 0.6); // cap scale for speed
+        const vp = page.getViewport({ scale });
+        canvas.width = vp.width;
+        canvas.height = vp.height;
+        await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+      } catch (e) {
+        console.warn("Thumbnail render failed:", pdfUrl, e);
+      }
+    }
+
+    // Thumbnails for your three PDFs
+    renderThumb("thumb-epicenter", "/assets/AB_EPICENTER_2025_Poster.pdf", 480);
+    renderThumb("thumb-wy-sobp", "/assets/WY_SOBP_2025_Poster.pdf", 480);
+    renderThumb("thumb-ab-sobp", "/assets/AB_SOBP_2025_Poster.pdf", 480);
   </script>
 </body>
 </html>

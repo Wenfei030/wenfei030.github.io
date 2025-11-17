@@ -83,10 +83,17 @@
 
     /* Poster thumbnails */
     .poster-grid{
-      display:grid; gap:14px;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      margin-top:10px
-    }
+  display:grid;
+  gap:18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 wide columns */
+  margin-top:10px;
+}
+@media (max-width: 700px){
+  .poster-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
     .poster{
       background:#fff; border:1px solid var(--line); border-radius:12px;
       box-shadow:0 6px 18px rgba(26,36,51,.08); padding:10px
@@ -194,7 +201,7 @@
 
         <li>
   <span class="me">Yu, W.</span>, Badola, A., Lazarus, S., Duchemin, A.-M., Virk, S., King, A. (Nov 2024).
-  Study Paradigm and preliminary results: Ketamine-Assisted Mindfulness-Based Cognitive Therapy for Treatment-Resistant Depression.
+  Study Paradigm: Ketamine-Assisted Mindfulness-Based Cognitive Therapy for Treatment-Resistant Depression.
   Presented at <em>IBMR Research Day</em>, Columbus, OH.
   <span class="pill">Poster</span>
         </li>
@@ -253,26 +260,6 @@
     </figure>
 
 
-    
-    <figure class="poster">
-      <a href="/assets/AB_EPICENTER_2025_Poster.pdf" target="_blank" rel="noopener" aria-label="Open EPICENTER 2025 poster PDF">
-        <canvas id="thumb-epicenter"></canvas>
-      </a>
-      <figcaption class="caption">
-        <a href="/assets/AB_EPICENTER_2025_Poster.pdf" target="_blank" rel="noopener">Mindfulness-based intervention effects on DMN cross-network resting FC associated with symptom improvement &mdash; Open PDF</a>
-      </figcaption>
-    </figure>
-
-
-
-    <figure class="poster">
-      <a href="/assets/AB_SOBP_2025_Poster.pdf" target="_blank" rel="noopener" aria-label="Open SOBP 2025 poster PDF (Badola et al.)">
-        <canvas id="thumb-ab-sobp"></canvas>
-      </a>
-      <figcaption class="caption">
-        <a href="/assets/AB_SOBP_2025_Poster.pdf" target="_blank" rel="noopener">Aberrant functional connectivity (rsFC) between subgenual ACC and default mode network in adults with history of childhood maltreatment &mdash; Open PDF</a>
-      </figcaption>
-    </figure>
 
 
   </div>
@@ -294,22 +281,26 @@
       "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
 
     // Render a first-page thumbnail to a canvas
-    async function renderThumb(canvasId, pdfUrl, maxWidth = 480) {
-      try {
-        const canvas = document.getElementById(canvasId);
-        if (!canvas) return;
-        const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
-        const page = await pdf.getPage(1);
-        const viewport = page.getViewport({ scale: 1 });
-        const scale = Math.min(maxWidth / viewport.width, 0.6); // cap scale for speed
-        const vp = page.getViewport({ scale });
-        canvas.width = vp.width;
-        canvas.height = vp.height;
-        await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
-      } catch (e) {
-        console.warn("Thumbnail render failed:", pdfUrl, e);
-      }
-    }
+async function renderThumb(canvasId, pdfUrl, maxWidth = 800) {
+  try {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+    const page = await pdf.getPage(1);
+    const viewport = page.getViewport({ scale: 1 });
+
+    // allow up to full size, scaled to maxWidth
+    const scale = Math.min(maxWidth / viewport.width, 1);
+    const vp = page.getViewport({ scale });
+
+    canvas.width = vp.width;
+    canvas.height = vp.height;
+    await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+  } catch (e) {
+    console.warn("Thumbnail render failed:", pdfUrl, e);
+  }
+}
+
 
     // Thumbnails for your three PDFs
     renderThumb("thumb-epicenter", "/assets/AB_EPICENTER_2025_Poster.pdf", 480);
